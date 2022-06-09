@@ -6,7 +6,8 @@
         <div>
             <input name="content" placeholder="ユーザー名"></input>
         </div>
-        <button type="submit"><img src="images/search.png"></button>
+        <button type="submit" action="{{ route('users.search') }}" method="GET"><img src="images/search.png"></button>
     </form>
 </div>
+
 @endsection
