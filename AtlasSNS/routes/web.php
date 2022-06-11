@@ -25,7 +25,7 @@ Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 
 Route::get('/register', 'Auth\RegisterController@register');
-Route::post('/register', 'Auth\RegisterController@validator');
+Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
@@ -38,6 +38,8 @@ Route::get('/top','PostsController@index');
 Route::get('/profile','UsersController@profile');
 
 Route::get('/search','UsersController@search')->name('users.search');
+
+
 
 Route::get('/follow-list','FollowsController@followList');
 Route::get('/follower-list','FollowsController@followerList');

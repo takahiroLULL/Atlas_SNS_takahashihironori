@@ -2,7 +2,7 @@
 
 @section('content')
 
-{!! Form::open(['url'=>'/register']) !!} //formの開始タグ どこに飛ばすか
+{!! Form::open(['url'=>'/register']) !!} <!--formの開始タグ どこに飛ばすか-->
 
 <h2>新規ユーザー登録</h2>
 
@@ -22,7 +22,7 @@
 
 <p><a href="/login">ログイン画面へ戻る</a></p>
 
-{!! Form::close() !!} //formタグ終了
+{!! Form::close() !!} <!--formタグ終了-->
 
 
 @endsection
