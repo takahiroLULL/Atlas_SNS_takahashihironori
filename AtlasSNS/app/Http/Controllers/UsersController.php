@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post; //使うディレクトリの指定
 
 class UsersController extends Controller
 {
@@ -18,4 +19,12 @@ class UsersController extends Controller
         $users = User::all();
         return view('index')->with('users', $users);
       }//検索結果を表示させる　
-}
+
+      public function postCounts(){
+        $posts = Post::get();
+        return view('posts.index', compact('posts'));
+      }
+//     public function posts(){
+//         return $this->hasMany('App\Post');
+//   }
+ }
