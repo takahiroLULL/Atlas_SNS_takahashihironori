@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers;//の中の↓
 
 use Illuminate\Http\Request;
-use App\Post; //使うディレクトリの指定
+use App\Post; //使うディレクトリの指定ここで宣言しないと使えない
 
 class UsersController extends Controller
 {

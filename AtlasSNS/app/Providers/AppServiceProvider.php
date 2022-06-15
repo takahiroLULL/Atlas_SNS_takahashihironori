@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer(['common.sidebar', 'common.footer'], function($view) {
+            $view->with('posts', Post::recent());
+        }
+    );
     }
 }
