@@ -9,4 +9,5 @@
         <button><img src="images/post.png"></button>
     </form>
 </div>
+
 @endsection

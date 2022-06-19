@@ -4,6 +4,8 @@ namespace App\Http\Controllers;//の中の↓
 
 use Illuminate\Http\Request;
 use App\Post; //使うディレクトリの指定ここで宣言しないと使えない
+use App\User;
+
 
 class UsersController extends Controller
 {
@@ -12,19 +14,15 @@ class UsersController extends Controller
         return view('users.profile');
     }
     public function search(){
-        return view('users.search');
+        $users = User::all();//users変数の中にユーザーテーブルの内容が全部入ってる
+        //()は送るブレード先
+        return view('users.search')->with('users', $users);//変数usersをbladeに送る
     }
-    
-    public function index() {
-        $users = User::all();
-        return view('index')->with('users', $users);
-      }//検索結果を表示させる　
+
+      //フォロー、フォロワー数表示に使う
 
       public function postCounts(){
-        $posts = Post::get();
+        $posts = Post::get();             //$postsをインデックスに持っていくのがcompa
         return view('posts.index', compact('posts'));
       }
-//     public function posts(){
-//         return $this->hasMany('App\Post');
-//   }
- }
+}
