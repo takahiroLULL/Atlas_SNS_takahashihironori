@@ -8,6 +8,11 @@
             <input name="keyword" placeholder="ユーザー名" ></input>
         </div>
         <button type="submit" ><img src="images/search.png"></button>
+        @if(!empty($keyword))
+        <p>
+        検索ワード:{{ $keyword }}
+        </p>
+        @endif
     </form>
 </div>
 

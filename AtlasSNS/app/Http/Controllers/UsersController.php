@@ -13,7 +13,7 @@ class UsersController extends Controller
     public function profile(){
         return view('users.profile');
     }
-    public function search(Request $request){
+    public function search(Request $request){//bledeから送られてくるものを受け取る記述
       // dd($request);
         $users = User::all();//users変数の中にユーザーテーブルの内容が全部入ってる
         //()は送るブレード先

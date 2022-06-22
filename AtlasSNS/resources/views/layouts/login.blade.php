@@ -24,11 +24,12 @@
         <div id = "head">
             <!--"/top"に戻るように     Atlasの画像を置く  画像を押せばtopに戻る記述-->
         <h1><a href="/top"><img src="images/atlas.png" ></a></h1> 
-            <div id="">
-                <div id="">
-                    <p>{{ Auth::user()->username }}さん<img src="images/arrow.png"></p> <!--Authの中のuserテーブルの中のusernameを取り出す-->
-                <div>
-                <ul>
+            <div class="menu">
+                    <input type="checkbox" id="menu_bar01"/>
+                    <label for="menu_bar01">{{ Auth::user()->username }}さん<img src="images/icon1.png">
+                    </label>
+                    <!--Authの中のuserテーブルの中のusernameを取り出す-->
+                <ul id="links01">
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
@@ -59,7 +60,7 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="js/script.js"></script>
     <script src="JavaScriptファイルのURL"></script>
 </body>
 </html>
