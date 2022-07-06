@@ -37,10 +37,15 @@ Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 
+// Route::get('/top','PostsController@create');
+Route::post('/create','PostsController@create');
 
 Route::get('/search','UsersController@search');
 
 Route::get('/top','UsersController@postCounts')->name('postCounts');
+
+
+// Route::post('/top','PostsController@store')->name('posts.store');
 
 
 Route::get('/follow-list','FollowsController@followList');
@@ -51,7 +56,7 @@ Route::get('/logout','Auth\LoginController@logout');
 
 //投稿フォームのやつ↓
 //表示用
-Route::get('/post','PostController@create')->name('post.create');
+// Route::post('/top','PostsController@create')->name('posts.create');
 //投稿を押した時
-Route::post('/post','PostController@store')->name('post.store');
+// Route::post('/top','PostsController@store')->name('posts.store');
 

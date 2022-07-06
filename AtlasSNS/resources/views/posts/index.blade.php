@@ -1,13 +1,12 @@
 @extends('layouts.login')
 
 @section('content')
+{!! Form::open(['url' => '/create']) !!}
 <div>
-    <form action="{{ route('posts.create') }}" method="POST">
         <div>
-            <input name="content" placeholder="投稿内容を入力してください"></input>
+            <input name="newPost" placeholder="投稿内容を入力してください"></input>
         </div>
-        <button><img src="images/post.png"></button>
-    </form>
+        <button type="submit"><img src="images/post.png"></button>
 </div>
-
+{!! Form::close() !!}
 @endsection
