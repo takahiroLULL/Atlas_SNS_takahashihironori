@@ -32,14 +32,17 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
 Route::group(['middleware' => ['auth']], function(){//middlewareのグループかして囲む、]);まで ログインされてない状態で不正にアクセスできなくするため
-Route::get('/top','PostsController@create');
+
+// Route::get('/top','PostsController@create');
 Route::post('/top','PostsController@create');
+
+// Route::post('/top','PostsController@store');
 
 Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 
-// Route::get('/top','PostsController@create');
+
 
 
 Route::get('/search','UsersController@search');

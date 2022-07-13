@@ -49,9 +49,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|string|max:255',
-            'mail' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:4|confirmed',
+            'username' => 'required|string|min:2|max:12',
+                          //入力必須|文字列であるか|２文字以上|12文字以内
+            'mail' => 'required|string|email|min:5|max:40|unique:users,mail',
+                       //入力必須|文字列であるか|登録済みメアド×|5文字以上|40文字以内|メアドの形式
+            'password' => 'required|string|min:8|max:20|confirmed|alpha_num',
+                         //入力必須|文字列であるか|8文字以上|20文字以内|confirmedと同値か|英数列か
+            'password_confirmation' => 'required|string|min:8|max:20|same:password',
+                                        //入力必須｜pass
+
         ]);
     }
 
@@ -78,7 +84,17 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){ //$requestにpostとして持ってく
             $data = $request->input();//$dateにユーザーデータを持っていく
-            $this->create($data);//$dateを入力して作る
+            
+            $validator = $this->validator($data);
+
+            if ($validator->fails()) {
+                return redirect('/register')
+                ->withErrors($validator)
+                ->withInput();
+                }
+
+                $this->create($data);//$dateを入力して作る $thisを使うことによって他のメソッドも使える よくみると＄thisの色が違う。
+
             $username =  $request->input('username');//$usernameとしてusernameを代入
             session()->put('username',$username);
             // return redirect('added');//addedに行く

@@ -9,14 +9,26 @@
 {{ Form::label('ユーザー名') }}
 {{ Form::text('username',null,['class' => 'input']) }}
 
+@error('username')
+  <li>{{$message}}</li>
+@enderror
+
 {{ Form::label('メールアドレス') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
+
+@error('mail')
+  <li>{{$message}}</li>
+@enderror
 
 {{ Form::label('パスワード') }}
 {{ Form::text('password',null,['class' => 'input']) }}
 
+@error('password')
+  <li>{{$message}}</li>
+@enderror
+
 {{ Form::label('パスワード確認') }}
-{{ Form::text('password-confirm',null,['class' => 'input']) }}
+{{ Form::text('password_confirmation',null,['class' => 'input']) }}
 
 {{ Form::submit('登録') }}
 

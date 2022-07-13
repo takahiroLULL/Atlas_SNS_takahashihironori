@@ -12,7 +12,7 @@
 @foreach($posts as $post)
 
 <p>
-<td>{{ $user }}</td>
+<td>{{ $post->user->username }}</td><!--リレーションしたやつはテーブル名も書く必要がある-->
                 <td>{{ $post->id }}</td>
                 <td>{{ $post->user_id }}</td>
                 <td>{{ $post->post }}</td>

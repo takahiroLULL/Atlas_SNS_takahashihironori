@@ -16,31 +16,31 @@ class PostsController extends Controller
 
     $posts = \DB::table('posts')->get();
     return view('posts.index',conpact($posts));
-
     }
-
+ 
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    // public function store(Request $request)
-    // {
-    //     $post = new Post;
-    //     $post->name = $request->name;
-    //     $post->title = $request->username;
-    //     $post->content = $request->content;
-    //     $post->save();
-    //     return redirect()->route('posts.create');
-    //     // return view('posts.index');
-    // }
+    public function store(Request $request)
+    {
+        $validator = $request->validate([ // これだけでバリデーションできるLaravelすごい！
+            'post' => ['required', 'string', 'max:200'], // 必須・文字であること・280文字まで（ツイッターに合わせた）というバリデーションをします（ビューでも軽く説明します。）
+        ]);
+    }
     
     public function create(Request $request)
     {
         $post = $request->newPost;
-        \DB::table('posts')->insert([
+    //    $validator = $request->validate([ // これだけでバリデーションできるLaravelすごい！
+    //         'post' => ['required', 'string', 'max:200'], // 必須・文字であること・280文字まで（ツイッターに合わせた）というバリデーションをします（ビューでも軽く説明します。）
+    //     ]);
+        \DB::table('posts')->insert
+        ([
             'user_id' => Auth::user()->id,
             'post' => $post, 
+
         ]);
         return redirect('/top');
     }
