@@ -5,6 +5,8 @@
     <!--IEブラウザ対策-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/script.js"></script>
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
@@ -61,6 +63,6 @@
     <footer>
     </footer>
     <script src="js/script.js"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 </html>

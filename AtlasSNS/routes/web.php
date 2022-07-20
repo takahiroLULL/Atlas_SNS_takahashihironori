@@ -36,6 +36,11 @@ Route::group(['middleware' => ['auth']], function(){//middlewareのグループ�
 // Route::get('/top','PostsController@create');
 Route::post('/top','PostsController@create');
 
+Route::post('/update/{id}','PostsController@update')->name('posts.update');
+
+Route::get('post/{id}/delete/','PostsController@delete')->name('posts.delete');
+
+
 // Route::post('/top','PostsController@store');
 
 Route::get('/top','PostsController@index');

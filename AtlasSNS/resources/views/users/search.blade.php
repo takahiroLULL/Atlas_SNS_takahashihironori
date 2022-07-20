@@ -18,7 +18,8 @@
 
 @foreach($users as $user)
     <p>
-        {{$user->username}}
+        <td>{{$user->username}}</td>
+        
 </p>
 @endforeach
 
