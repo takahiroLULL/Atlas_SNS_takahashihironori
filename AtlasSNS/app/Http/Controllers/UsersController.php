@@ -37,4 +37,29 @@ class UsersController extends Controller
         $posts = Post::get();             //$postsをインデックスに持っていくのがcompa
         return view('posts.index', compact('posts'));
       }
+
+      public function profileupdate(Request $request){
+        $validator = Validator::make($request->all(),[
+          'username'  => 'required|min:2|max:12',
+          'mail' => 'required', 'min:5', 'max:40', 'email',
+          'password' => 'min:8|max:20|confirmed|alpha_num',
+          'password_confirmation' => 'min:8|max:20|alpha_num',
+          'bio' => 'max:150',
+          'icon image' => 'image',
+        ]);
+
+        $user = Auth::user();
+        //画像登録
+        $image = $request->file('iconimage')->store('public/images');
+        $validator->validate();
+        $user->update([
+            'username' => $request->input('username'),
+            'mail' => $request->input('mail'),
+            'password' => bcrypt($request->input('newpassword')),
+            'bio' => $request->input('bio'),
+            'images' => basename($image),
+        ]);
+
+        return redirect('/profile');
+    }
 }

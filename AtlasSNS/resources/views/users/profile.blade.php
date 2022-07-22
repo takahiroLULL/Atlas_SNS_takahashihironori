@@ -2,30 +2,19 @@
 
 @section('content')
 
+<form action="{{route('users.profileup')}}" enctype="multipart/form-data" method="post">
+{{ csrf_field() }}
+       
+        username:<input type="text" name="username" value="{{ Auth::user()->username }}"><br>
+        E-mail Adress:<input type="text" name="mail" value="{{ Auth::user()->mail }}"><br>
+        password:<input type="text" name="password"><br>
+        password confirmation:<input type="text" name="password confirmation"><br>
+        bio:<input type="text" name="bio" value="{{ Auth::user()->bio }}"><br>
+        icon image: <input type="file" name="image"><br>
+        <input type="hidden" name="id" >
 
+<input type='submit' value='更新'>
 
-<p>{{ Form::label('user name') }}
-{{ Form::text('username',null,['class' => 'input']) }}
-</p>
-<p>
-{{ Form::label('mail adress') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
-</p>
-<p>
-{{ Form::label('password') }}
-{{ Form::text('password',null,['class' => 'input']) }}
-</p>
-<p>
-{{ Form::label('password comfirm') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
-</p>
-<p>
-{{ Form::label('bio') }}
-{{ Form::text('bio',null,['class' => 'input']) }}
-</p>
-<p>
-{{ Form::label('icon image') }}
-{{ Form::text('images',null,['class' => 'input']) }}
-</p>
+{!! Form::close() !!}
 
 @endsection

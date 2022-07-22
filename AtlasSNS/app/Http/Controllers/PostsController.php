@@ -14,8 +14,9 @@ class PostsController extends Controller
     
     public function index(){
 
-    $posts = \DB::table('posts')->get();
-    return view('posts.index',conpact($posts));
+    // $posts = \DB::table('posts')->get();
+    $posts = Post::orderBy('created_at', 'desc')->get();
+    return view('posts.index',compact('posts'));
     }
  
     public function __construct()
@@ -33,20 +34,17 @@ class PostsController extends Controller
     public function create(Request $request)
     {
         $post = $request->newPost;
-        \DB::table('posts')->insert
-        ([
+        Post::create ([
             'user_id' => Auth::user()->id,
             'post' => $post, 
-
         ]);
         return redirect('/top');
     }
-    //DB::はおすすめできない、、
     
     public function update(Request $request, $id)
-    {
-    
-       $post = Post::find($id);
+    {   
+        $text = $request->post;
+       $post = Post::find($text);
        $post->update(['post'=>$request->text]);
 
        return redirect('/top');
@@ -62,4 +60,4 @@ class PostsController extends Controller
     }
 }
 
-   
+// {{route('posts.update',$post->id)}}

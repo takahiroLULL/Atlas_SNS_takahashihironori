@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-{!! Form::open(['url' => '/top']) !!}
+{!! Form::open(['url' => '/create','method'=>'Post']) !!}
 <div>
         <div>
             <input name="newPost" placeholder="投稿内容を入力してください"></input>
@@ -31,7 +31,7 @@
            <form action="{{route('posts.update',$post->id)}}" method="POST"><!--このルートで書く場合はweb.phpにnameを記入してあげる-->
                {{csrf_field()}}
                 <textarea name="text" class="modal_post"></textarea>
-                <input type="hidden" name="post" class="modal_id" value="{{$post->post}}">
+                <input type="hidden" name="post" class="modal_id" value="PUT">
                 <input type="submit" value="更新">
            </form>
            <a class="js-modal-close">閉じる</a>

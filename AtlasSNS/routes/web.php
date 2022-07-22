@@ -33,26 +33,24 @@ Route::post('/added', 'Auth\RegisterController@added');
 //ログイン中のページ
 Route::group(['middleware' => ['auth']], function(){//middlewareのグループかして囲む、]);まで ログインされてない状態で不正にアクセスできなくするため
 
-// Route::get('/top','PostsController@create');
-Route::post('/top','PostsController@create');
-
+//topページ表示
+Route::get('/top','PostsController@index');
+//投稿機能
+Route::post('/create','PostsController@create');
+//投稿編集
 Route::post('/update/{id}','PostsController@update')->name('posts.update');
-
+//投稿削除
 Route::get('post/{id}/delete/','PostsController@delete')->name('posts.delete');
 
-
-// Route::post('/top','PostsController@store');
-
-Route::get('/top','PostsController@index');
-
+//プロフィールページ移行
 Route::get('/profile','UsersController@profile');
-
-
+//プロフィール更新
+Route::post('/profile','UsersController@profileup')->name('users.profileup');
 
 
 Route::get('/search','UsersController@search');
 
-Route::get('/top','UsersController@postCounts')->name('postCounts');
+Route::post('/top','UsersController@postCounts')->name('postCounts');
 
 
 // Route::post('/top','PostsController@store')->name('posts.store');
