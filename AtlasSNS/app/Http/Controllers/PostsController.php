@@ -41,9 +41,9 @@ class PostsController extends Controller
         return redirect('/top');
     }
     
-    public function update(Request $request, $id)
+    public function update(Request $request )
     {   
-        $text = $request->post;
+       $text = $request->post;
        $post = Post::find($text);
        $post->update(['post'=>$request->text]);
 

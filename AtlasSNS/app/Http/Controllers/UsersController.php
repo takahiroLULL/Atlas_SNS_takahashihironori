@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;//の中の↓
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Post; //使うディレクトリの指定ここで宣言しないと使えない
+use Illuminate\Support\Facades\Auth;
 use App\User;
 
 
@@ -38,14 +40,14 @@ class UsersController extends Controller
         return view('posts.index', compact('posts'));
       }
 
-      public function profileupdate(Request $request){
+      public function profileup(Request $request){
         $validator = Validator::make($request->all(),[
           'username'  => 'required|min:2|max:12',
-          'mail' => 'required', 'min:5', 'max:40', 'email',
+          'mail' => 'required|min:5|max:40|email|unique:users,mail',
           'password' => 'min:8|max:20|confirmed|alpha_num',
           'password_confirmation' => 'min:8|max:20|alpha_num',
           'bio' => 'max:150',
-          'icon image' => 'image',
+          'icon image' => 'image｜alpha_num',
         ]);
 
         $user = Auth::user();
@@ -55,10 +57,11 @@ class UsersController extends Controller
         $user->update([
             'username' => $request->input('username'),
             'mail' => $request->input('mail'),
-            'password' => bcrypt($request->input('newpassword')),
+            'password' => bcrypt($request->input('password')),
             'bio' => $request->input('bio'),
             'images' => basename($image),
         ]);
+        dd($user);
 
         return redirect('/profile');
     }
