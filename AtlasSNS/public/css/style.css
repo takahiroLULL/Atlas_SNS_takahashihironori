@@ -103,7 +103,7 @@ header{
     margin: auto;
   }
 
-  /*投稿編集*/
+  投稿編集
   .content{
     margin: 0 auto;
     padding: 40px;
@@ -130,3 +130,4 @@ header{
     transform: translate(-50%,-50%);
     width: 60%;
 }
+

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 
 
+
 class UsersController extends Controller
 {
     //
@@ -41,28 +42,71 @@ class UsersController extends Controller
       }
 
       public function profileup(Request $request){
-        $validator = Validator::make($request->all(),[
-          'username'  => 'required|min:2|max:12',
-          'mail' => 'required|min:5|max:40|email|unique:users,mail',
-          'password' => 'min:8|max:20|confirmed|alpha_num',
-          'password_confirmation' => 'min:8|max:20|alpha_num',
-          'bio' => 'max:150',
-          'icon image' => 'image｜alpha_num',
-        ]);
 
+      if($request->ismethod('post')){
+        $rulus =[
+          'username' =>'required|min:2|max:12',
+          'mail' =>'required|email|min:5|max:40|unique:users',
+          'password' =>'required|alpha_dash|min:8|max:20|confirmed|string',
+          'password_confirmation' =>'required|alpha_dash|min:8|max:20|string',
+          'bio' =>'max:150',
+          'iconimage' => 'image|mimes:jpg,png,bmp,gif,svg',
+        ];
+        
+        $message = [
+          'username.required' => 'ユーザー名を入力してください',
+          'username.min' => 'ユーザー名は2文字以上、12文字以下で入力してください',
+          'username.max' => 'ユーザー名は2文字以上、12文字以下で入力してください',
+          'mail.required' => 'メールアドレスを入力してください',
+          'mail.email' => '有効なEメールアドレスを入力してください',
+          'mail.min' => 'メールアドレスは5文字以上、40文字以下で入力してください',
+          'mail.max' => 'メールアドレスは5文字以上、40文字以下で入力してください',
+          'mail.unique:users' => 'このメールアドレスは既に使われています',
+          'password.required' => 'パスワードを入力してください',
+          'password.min' => 'パスワードは8文字以上、20文字以下で入力してください',
+          'password.max' => 'パスワードは8文字以上、20文字以下で入力してください',
+          'password.alpha_dash' => 'パスワードは英数字のみ入力してください',
+          'password.confirmed' => '確認パスワードが一致しません',
+          'password_confirmation.required' => '確認パスワードを入力してください',
+          'password.alpha_num' => 'パスワードは半角数字で入力してください',
+          'iconimage.image' => '指定されたファイルは画像ではありません',
+          'iconimage.alpha_dash' =>'ファイル名は英数字のみです',
+          'iconimage.mimes' => '指定されたファイルではありません'
+        ];
+        $validator = validator::make($request->all(),$rulus,$message);
+
+        if($validator->fails()){
+          return redirect('/profile')
+          ->withErrors($validator)
+          ->withInput();
+        }
+        // dd($request);
         $user = Auth::user();
-        //画像登録
-        $image = $request->file('iconimage')->store('public/images');
+        $id = Auth::id();
         $validator->validate();
-        $user->update([
-            'username' => $request->input('username'),
-            'mail' => $request->input('mail'),
-            'password' => bcrypt($request->input('password')),
-            'bio' => $request->input('bio'),
-            'images' => basename($image),
-        ]);
-        dd($user);
+ 
 
-        return redirect('/profile');
+        if($image =null){
+          $image = $request->file('iconimage')->store('public/image');
+        }
+      
+
+        $user->username = $request->input('username');
+        $user->mail = $request->input('mail');
+        $user->password = bcrypt($request->input('password'));
+        $user->bio = $request->input('bio');
+        $user->image = basename($image);
+        \DB::table('users')
+        ->where('id',$id)
+        ->update([
+          'username' => $user->username,
+          'mail' => $user->mail,
+          'password' => $user->password,
+          'bio' => $user->bio,
+          'images' => $user->image,
+        ]);
+      }
+ 
+        return redirect('/top');
     }
 }
