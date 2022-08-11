@@ -48,6 +48,7 @@ Route::get('/profile','UsersController@profile');
 Route::post('/profile','UsersController@profileup')->name('users.profileup');
 
 
+
 Route::get('/search','UsersController@search');
 
 Route::post('/top','UsersController@postCounts')->name('postCounts');

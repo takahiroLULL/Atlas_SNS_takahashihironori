@@ -19,6 +19,8 @@
 @foreach($users as $user)
     <p>
         <td>{{$user->username}}</td>
+        <button><a herf="/search">フォローする</a></button>
+        <button><a herf="/search">フォロー解除</a></button>
         
 </p>
 @endforeach
