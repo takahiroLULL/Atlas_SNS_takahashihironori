@@ -30,28 +30,67 @@ class User extends Authenticatable
     public function posts() { //1対多の「多」側なので複数形
         return $this->hasMany('App\Post');
         }
+        //これでpostとのリレーションができた//
+
+        public function followers()
+        {
+            return $this->belongsTomany(
+                'App\User',
+                'follows',
+                'follow_id',
+                'following_id'
+            );
+        }
+
+        public function follows()
+        {
+            return $this->belongsTomany(
+                'App\User',
+                'follows',
+                'follow_id',
+                'following_id'
+            );
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // フォローする
-    public function follow(Int $user_id) 
-    {
-        return $this->follows()->attach($user_id);
-    }
+//     public function follow(Int $user_id) 
+//     {
+//         return $this->follows()->attach($user_id);
+//     }
 
-    // フォロー解除する
-    public function unfollow(Int $user_id)
-    {
-        return $this->follows()->detach($user_id);
-    }
+//     // フォロー解除する
+//     public function unfollow(Int $user_id)
+//     {
+//         return $this->follows()->detach($user_id);
+//     }
 
-    // フォローしているか
-    public function isFollowing(Int $user_id) 
-    {
-        return (boolean) $this->follows()->where('followed_id', $user_id)->first(['id']);
-    }
+//     // フォローしているか
+//     public function isFollowing(Int $user_id) 
+//     {
+//         return (boolean) $this->follows()->where('followed_id', $user_id)->first(['id']);
+//     }
 
-    // フォローされているか
-    public function isFollowed(Int $user_id) 
-    {
-        return (boolean) $this->followers()->where('following_id', $user_id)->first(['id']);
-    }
-}
-//これでpostとのリレーションができた//
+//     // フォローされているか
+//     public function isFollowed(Int $user_id) 
+//     {
+//         return (boolean) $this->followers()->where('following_id', $user_id)->first(['id']);
+//     }
+// }

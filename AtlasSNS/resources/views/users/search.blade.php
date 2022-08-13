@@ -18,12 +18,35 @@
 
 @foreach($users as $user)
     <p>
+        <td class="user-icon"><img src={{$user->images}}></td>
         <td>{{$user->username}}</td>
-        <button><a herf="/search">フォローする</a></button>
-        <button><a herf="/search">フォロー解除</a></button>
-        
+        @if(auth()->user()->isFollowing($user->id))
+        <td>
+            <form action="/unfollow" method="post" class="unfollow-btn">
+                <input type="hidden" name="unfollowing_id" class="unfollowing_id" value="{{ $user->id }}">
+                <input type="submit" value="フォロー解除">
+                {{ csrf_field() }}
+            </form>
+        </td>
+        @else
+        <td>
+            <form action="/follow" method="post" class="follow-btn">
+                <input type="hidden" name="following_id" class="following_id" value="{{ $user->id }}">
+                <input type="submit" value="フォローする">
+                {{ csrf_field() }}
+            </form>
+        </td>
+        @endif
 </p>
 @endforeach
 
 
 @endsection
+
+
+
+
+
+
+
+

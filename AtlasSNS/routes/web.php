@@ -41,20 +41,20 @@ Route::post('/create','PostsController@create');
 Route::post('/update/{id}','PostsController@update')->name('posts.update');
 //投稿削除
 Route::get('post/{id}/delete/','PostsController@delete')->name('posts.delete');
-
 //プロフィールページ移行
 Route::get('/profile','UsersController@profile');
 //プロフィール更新
 Route::post('/profile','UsersController@profileup')->name('users.profileup');
-
-
-
+//ユーザー検索
 Route::get('/search','UsersController@search');
-
+//フォロー、フォロワー数表示
 Route::post('/top','UsersController@postCounts')->name('postCounts');
 
-
-// Route::post('/top','PostsController@store')->name('posts.store');
+Route::post('/search','UsersController@searchPage')->name('users.searchPage');
+//フォロー機能
+Route::post('/unfollow','UsersController@following')->name('users.following');
+//フォロー解除機能
+Route::post('/follow','UsersController@isFollowed')->name('users.isFollowed');
 
 
 Route::get('/follow-list','FollowsController@followList');
