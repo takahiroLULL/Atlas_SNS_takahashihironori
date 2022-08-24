@@ -37,7 +37,7 @@ class User extends Authenticatable
             return $this->belongsTomany(
                 'App\User',
                 'follows',
-                'follow_id',
+                'followed_id',
                 'following_id'
             );
         }
@@ -47,9 +47,39 @@ class User extends Authenticatable
             return $this->belongsTomany(
                 'App\User',
                 'follows',
-                'follow_id',
-                'following_id'
+                'following_id',
+                'followed_id'
+                
             );
+        }
+
+        // フォローする
+    public function follow(Int $user_id) 
+    {
+        return $this->follows()->attach($user_id);
+    }
+
+    // フォロー解除する
+    public function unfollow(Int $user_id)
+    {
+        return $this->follows()->detach($user_id);
+    }
+
+
+        //フォローしているか
+        public function isFollowing(Int $user_id)
+        {
+          // booleanで値の有無（真偽）の確認
+          return (boolean) $this->follows()->where('followed_id', $user_id)->first(['follows.id']);
+    
+        }
+    
+    
+        //フォローされているか
+        public function isFollowed(Int $user_id)
+        {
+          return (boolean) $this->follows()->where('following_id', $user_id)->first(['id']);
+    
         }
     }
 

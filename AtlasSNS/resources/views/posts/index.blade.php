@@ -24,7 +24,7 @@
 </div>
 </p>
 
-@endforeach
+
 <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
@@ -37,5 +37,6 @@
            <a class="js-modal-close">閉じる</a>
         </div>
     </div>
+    @endforeach
 
 @endsection

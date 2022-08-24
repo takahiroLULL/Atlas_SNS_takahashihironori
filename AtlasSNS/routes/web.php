@@ -50,11 +50,11 @@ Route::get('/search','UsersController@search');
 //フォロー、フォロワー数表示
 Route::post('/top','UsersController@postCounts')->name('postCounts');
 
-Route::post('/search','UsersController@searchPage')->name('users.searchPage');
+Route::post('/search','UsersController@searchPage')->name('searchPage');
 //フォロー機能
-Route::post('/unfollow','UsersController@following')->name('users.following');
+Route::post('users/{id}/follow','UsersController@follow')->name('follow');
 //フォロー解除機能
-Route::post('/follow','UsersController@isFollowed')->name('users.isFollowed');
+Route::delete('users/{id}/unfollow','UsersController@unfollow')->name('unfollow');
 
 
 Route::get('/follow-list','FollowsController@followList');
@@ -63,9 +63,4 @@ Route::get('/follower-list','FollowsController@followerList');
 Route::get('/logout','Auth\LoginController@logout');
 });
 
-//投稿フォームのやつ↓
-//表示用
-// Route::post('/top','PostsController@create')->name('posts.create');
-//投稿を押した時
-// Route::post('/top','PostsController@store')->name('posts.store');
 

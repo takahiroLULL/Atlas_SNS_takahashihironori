@@ -38,9 +38,10 @@ class PostsController extends Controller
             'user_id' => Auth::user()->id,
             'post' => $post, 
         ]);
+        
         return redirect('/top');
     }
-    
+
     public function update(Request $request )
     {   
        $text = $request->post;

@@ -111,26 +111,38 @@ class UsersController extends Controller
     }
 
     public function searchPage(){
-      $list = User::where("id" , "!=" , Auth::user()->id)->with('followers')->get();
+      $user = User::where("id" , "!=" , Auth::user()->id)->with('followers')->get();
       
-      return view('users.search',['lists'=>$list]);
+      return view('users.search',['lists'=>$user]);
     }
 
-    //フォローしているか
-    public function isFollowing(Int $user_id)
-    {
-      // booleanで値の有無（真偽）の確認
-      return (boolean) $this->follws()->where('following_id', $user_id)->first(['id']);
-
-    }
-
-
-    //フォローされているか
-    public function isFollowed(Int $user_id)
-    {
-      return (boolean) $this->follwers()->where('following_id', $user_id)->first(['id']);
-
-    }
+     // フォロー
+     public function follow(user $user,$id)
+     {
+      $user = User::find($id); 
+         $follower = auth()->user();
+         // フォローしているか
+         $is_following = $follower->isFollowing($user->id);
+         if(!$is_following) {
+             // フォローしていなければフォローする
+             $follower->follow($user->id);
+             return back();
+         }
+     }
+ 
+     // フォロー解除
+     public function unfollow(User $user,$id)
+     {
+      $user = User::find($id);
+         $follower = auth()->user();
+         // フォローしているか
+         $is_following = $follower->isFollowing($user->id);
+         if($is_following) {
+             // フォローしていればフォローを解除する
+             $follower->unfollow($user->id);
+             return back();
+         }
+     }
 
     
 
