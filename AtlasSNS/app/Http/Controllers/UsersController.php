@@ -111,9 +111,9 @@ class UsersController extends Controller
     }
 
     public function searchPage(){
-      $user = User::where("id" , "!=" , Auth::user()->id)->with('followers')->get();
-      
+      $user = User::where("id" , "!=" , Auth::user()->id)->with('followers')->get(); 
       return view('users.search',['lists'=>$user]);
+      
     }
 
      // フォロー
@@ -143,42 +143,4 @@ class UsersController extends Controller
              return back();
          }
      }
-
-    
-
-
-
-
-
-
-
-
-
-    // public function follow(User $user)
-    // {
-    //     $follower = auth()->user();
-    //     // フォローしているか
-    //     $is_following = $follower->isFollowing($user->id);
-    //     if(!$is_following) {
-    //         // フォローしていなければフォローする
-    //         $follower->follow($user->id);
-    //         return back();
-    //     }
-    // }
-
-    // // フォロー解除
-    // public function unfollow(User $user)
-    // {
-    //     $follower = auth()->user();
-    //     // フォローしているか
-    //     $is_following = $follower->isFollowing($user->id);
-    //     if($is_following) {
-    //         // フォローしていればフォローを解除する
-    //         $follower->unfollow($user->id);
-    //         return back();
-    //     }
-    // }
-
-
-    
-}
+    }

@@ -17,7 +17,8 @@
 </div>
 
 @foreach($users as $user)
-<!--@if ここに自分以外表示されるようにする記述が必要。-->
+
+@if ($user->id !== Auth::user()->id)
     <p>
         <td class="user-icon"><img src={{$user->images}}></td>
         <td>{{$user->username}}</td>
@@ -39,6 +40,7 @@
         @endif
 
 </p>
+@endif
 @endforeach
 
 

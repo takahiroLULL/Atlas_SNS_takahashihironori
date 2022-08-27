@@ -47,10 +47,13 @@ Route::get('/profile','UsersController@profile');
 Route::post('/profile','UsersController@profileup')->name('users.profileup');
 //ユーザー検索
 Route::get('/search','UsersController@search');
-//フォロー、フォロワー数表示
+
 Route::post('/top','UsersController@postCounts')->name('postCounts');
 
 Route::post('/search','UsersController@searchPage')->name('searchPage');
+
+//フォロー、フォロワー数の表示
+Route::get('/top','FollowsController@show');
 //フォロー機能
 Route::post('users/{id}/follow','UsersController@follow')->name('follow');
 //フォロー解除機能
