@@ -18,13 +18,14 @@ class FollowsController extends Controller
         return view('follows.followerList');
     }
 
-    public function show(User $user, Follower $follower)
+    public function show(User $user)
       {
+        //   dd($user);
           $login_user = auth()->user();
           $is_following = $login_user->isFollowing($user->id);
           $is_followed = $login_user->isFollowed($user->id);
-          $follow_count = $follower->getFollowCount($user->id);
-          $follower_count = $follower->getFollowerCount($user->id);
+          $follow_count = $follow->getFollowCount($user->id);
+          $follower_count = $follow->getFollowerCount($user->id);
   
           return view('/', [
               'user'           => $user,
