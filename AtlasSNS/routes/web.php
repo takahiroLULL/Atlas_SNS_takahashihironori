@@ -52,8 +52,6 @@ Route::post('/top','UsersController@postCounts')->name('postCounts');
 
 Route::post('/search','UsersController@searchPage')->name('searchPage');
 
-//フォロー、フォロワー数の表示
-Route::get('/top','FollowsController@show');
 //フォロー機能
 Route::post('users/{id}/follow','UsersController@follow')->name('follow');
 //フォロー解除機能
