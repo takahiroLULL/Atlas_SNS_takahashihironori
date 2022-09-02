@@ -11,5 +11,6 @@ class Follow extends Model
         'following_id', 'followed_id'
       ];
 
+      
     
 }

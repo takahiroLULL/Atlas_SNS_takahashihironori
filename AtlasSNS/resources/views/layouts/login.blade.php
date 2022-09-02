@@ -28,7 +28,7 @@
         <h1><a href="/top"><img src="images/atlas.png" ></a></h1> 
             <div class="menu">
                     <input type="checkbox" id="menu_bar01"/>
-                    <label for="menu_bar01">{{ Auth::user()->username }}さん<img src="images/icon1.png">
+                    <label for="menu_bar01">{{ Auth::user()->username }}さん<img src={{ Auth::user()->image  }}>
                     </label>
                     <!--Authの中のuserテーブルの中のusernameを取り出す-->
                 <ul id="links01">
@@ -48,6 +48,8 @@
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
+                <!-- blade〜モデルでやりとり -->
+                <!-- ログインしている::ユーザー()->modelのメソッド（フォローしている人の数）→id -->
                 <p>{{ Auth::user()->getFollowCount(Auth::user()->id) }}名</p>
                 </div>
                 <p class="btn"><a href="follow-list">フォローリスト</a></p>

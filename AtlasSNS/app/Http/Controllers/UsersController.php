@@ -34,13 +34,6 @@ class UsersController extends Controller
       // return view('search', compact('users', 'keyword'));
     }
 
-      //フォロー、フォロワー数表示に使う
-
-      public function postCounts(){
-        $posts = Post::get();             //$postsをインデックスに持っていくのがcompa
-        return view('posts.index', compact('posts'));
-      }
-
       public function profileup(Request $request){
 
       if($request->ismethod('post')){
@@ -110,11 +103,7 @@ class UsersController extends Controller
         return redirect('/top');
     }
 
-    public function searchPage(){
-      $user = User::where("id" , "!=" , Auth::user()->id)->with('followers')->get(); 
-      return view('users.search',['lists'=>$user]);
-      
-    }
+  
 
      // フォロー
      public function follow(user $user,$id)

@@ -13,5 +13,6 @@ return $this->belongsTo('App\User');
     }
 
 
+    
 }
 //これでusersとのリレーションができた！//

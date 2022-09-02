@@ -91,5 +91,13 @@ class User extends Authenticatable
         {
             return $this->followers()->where('followed_id', $user_id)->count();
         }
+
+        public function getAllUsers(Int $user_id)
+      {
+          return $this->follows()->Where('following_id', $user_id)->get();
+      }
     
+
+   
+
     }
