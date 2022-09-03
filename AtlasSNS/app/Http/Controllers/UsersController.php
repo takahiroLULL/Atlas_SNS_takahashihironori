@@ -73,22 +73,25 @@ class UsersController extends Controller
           ->withErrors($validator)
           ->withInput();
         }
-        // dd($request);
+        
         $user = Auth::user();
         $id = Auth::id();
         $validator->validate();
- 
+        
 
+        // もし画像がなかったら、、、、
         if($image =null){
-          $image = $request->file('iconimage')->store('public/image');
-        }
+          $image = $request->file('iconimage')->store('images');
+        } 
       
 
+        
         $user->username = $request->input('username');
         $user->mail = $request->input('mail');
         $user->password = bcrypt($request->input('password'));
         $user->bio = $request->input('bio');
         $user->image = basename($image);
+        $image= $request->input('images');
         \DB::table('users')
         ->where('id',$id)
         ->update([
@@ -96,10 +99,9 @@ class UsersController extends Controller
           'mail' => $user->mail,
           'password' => $user->password,
           'bio' => $user->bio,
-          'images' => $user->image,
+          'images' => $user->images,
         ]);
       }
- 
         return redirect('/top');
     }
 
