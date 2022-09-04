@@ -2,9 +2,10 @@
 
 @section('content')
 
-<img src="{{ asset('storage/images/' .auth()->user()->images) }}">
+<img src="{{ asset('storages/app/images/' .auth()->user()->images) }}">
 
 <form action="{{route('users.profileup')}}" enctype="multipart/form-data" method="post">
+        
 {{ csrf_field() }}
 
 @foreach($errors->all() as $error)

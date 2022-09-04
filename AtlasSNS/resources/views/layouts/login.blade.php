@@ -28,12 +28,13 @@
         <h1><a href="/top"><img src="images/atlas.png" ></a></h1> 
             <div class="menu">
                     <input type="checkbox" id="menu_bar01"/>
-                    <label for="menu_bar01">{{ Auth::user()->username }}さん<img src="images/icon1.png">
+                    <label for="menu_bar01">{{ Auth::user()->username }}さん<img src="{{  asset('public/storages/app/images/' .auth()->user()->images) }}">
                     </label>
                     <!--Authの中のuserテーブルの中のusernameを取り出す-->
                 <ul id="links01">
                     <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
+                    <li><a href="/profile">プロフィール編集
+                    </a></li>
                     <li><a href="/logout">ログアウト</a></li>
                 </ul>
             </div>

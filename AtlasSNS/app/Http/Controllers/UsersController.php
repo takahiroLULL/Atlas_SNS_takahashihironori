@@ -77,29 +77,32 @@ class UsersController extends Controller
         $user = Auth::user();
         $id = Auth::id();
         $validator->validate();
-        
+        $image = $request->file('iconimage');
 
-        // もし画像がなかったら、、、、
-        if($image =null){
-          $image = $request->file('iconimage')->store('images');
+        // 画像があったら、、、、
+        if($image !=null){
+          $image->store('images');
+          \DB::table('users')
+        ->where('id',$id)
+        ->update([
+          'images' => basename($image),
+        ]);
         } 
-      
-
+        
         
         $user->username = $request->input('username');
         $user->mail = $request->input('mail');
+                          // ハッシュ化
         $user->password = bcrypt($request->input('password'));
         $user->bio = $request->input('bio');
         $user->image = basename($image);
-        $image= $request->input('images');
         \DB::table('users')
         ->where('id',$id)
         ->update([
-          'username' => $user->username,
-          'mail' => $user->mail,
-          'password' => $user->password,
-          'bio' => $user->bio,
-          'images' => $user->images,
+          'username' => $request->input('username'),
+          'mail' => $request->input('mail'),
+          'password' =>bcrypt($request->input('password')),
+          'bio' => $request->input('bio'),
         ]);
       }
         return redirect('/top');
