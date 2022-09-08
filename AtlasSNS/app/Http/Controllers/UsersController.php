@@ -77,11 +77,12 @@ class UsersController extends Controller
         $user = Auth::user();
         $id = Auth::id();
         $validator->validate();
-        $image = $request->file('iconimage');
+        $image = $request->file('iconimage')->getClientOriginalName();
+        dd($image);
 
         // 画像があったら、、、、
         if($image !=null){
-          $image->store('images');
+          $image->store('public/images');
           \DB::table('users')
         ->where('id',$id)
         ->update([
@@ -101,7 +102,7 @@ class UsersController extends Controller
         ->update([
           'username' => $request->input('username'),
           'mail' => $request->input('mail'),
-          'password' =>bcrypt($request->input('password')),
+          'password' => bcrypt($request->input('password')),
           'bio' => $request->input('bio'),
         ]);
       }
