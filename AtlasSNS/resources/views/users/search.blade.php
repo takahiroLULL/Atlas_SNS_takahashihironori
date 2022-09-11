@@ -17,7 +17,7 @@
 </div>
 
 @foreach($users as $user)
-
+<!-- !で自分以外のユーザーを表示 -->
 @if ($user->id !== Auth::user()->id)
     <p>
         <td class="user-icon"><img src={{$user->images}}></td>

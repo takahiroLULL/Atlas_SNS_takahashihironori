@@ -48,17 +48,12 @@ Route::post('/profile','UsersController@profileup')->name('users.profileup');
 //ユーザー検索に移動
 Route::get('/search','UsersController@search');
 
-Route::post('/top','UsersController@postCounts')->name('postCounts');
-
 //フォロー機能
 Route::post('users/{id}/follow','UsersController@follow')->name('follow');
 //フォロー解除機能
 Route::delete('users/{id}/unfollow','UsersController@unfollow')->name('unfollow');
-
 // フォローリスト表示
 Route::get('/follow-list','FollowsController@followList');
-//フォローリスト一覧
-Route::get('/follow-list','FollowsController@index');
 // フォロワーリスト表示
 Route::get('/follower-list','FollowsController@followerList');
 //ログアウト機能

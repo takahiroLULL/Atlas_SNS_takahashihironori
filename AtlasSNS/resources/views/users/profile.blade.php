@@ -2,7 +2,7 @@
 
 @section('content')
 
-<img src="{{ asset('storages/app/images/' .auth()->user()->images) }}">
+<img src="{{  asset('/storage/images/' . Auth::user()->images) }}">
 
 <form action="{{route('users.profileup')}}" enctype="multipart/form-data" method="post">
         

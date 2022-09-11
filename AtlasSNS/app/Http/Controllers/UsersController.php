@@ -77,16 +77,18 @@ class UsersController extends Controller
         $user = Auth::user();
         $id = Auth::id();
         $validator->validate();
-        $image = $request->file('iconimage')->getClientOriginalName();
-        dd($image);
+        // ブレードから送られてきたデータ（iconimage)を受け取る
+        $image = $request->file('iconimage');
+        // 名前が変わる前に保存。$imageに格納（シンボリックリンクを（シンボリックリンクを経由する前）
 
         // 画像があったら、、、、
         if($image !=null){
-          $image->store('public/images');
+          // シンボリックリンクを経由する 名前が変わった後が＄image_pass（ここの変数はなんでもいい）
+          $image_path = $image->store('public/images');
           \DB::table('users')
         ->where('id',$id)
         ->update([
-          'images' => basename($image),
+          'images' => basename($image_path),
         ]);
         } 
         

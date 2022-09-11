@@ -12,10 +12,13 @@ class FollowsController extends Controller
 {
     //
     public function followList(){
-        return view('follows.followList');
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        $images = User::get();
+        return view('follows.followList',compact('posts','images'));
     }
     public function followerList(){
-        return view('follows.followerList');
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('follows.followerList',compact('posts'));
     }
 
     public function index(User $user)

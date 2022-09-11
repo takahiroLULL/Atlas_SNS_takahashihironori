@@ -28,7 +28,7 @@
         <h1><a href="/top"><img src="images/atlas.png" ></a></h1> 
             <div class="menu">
                     <input type="checkbox" id="menu_bar01"/>
-                    <label for="menu_bar01">{{ Auth::user()->username }}さん<img src="{{  asset('public/images'.Auth::user()->images) }}">
+                    <label for="menu_bar01">{{ Auth::user()->username }}さん<img src="{{  asset('/storage/images/' . Auth::user()->images) }}">
                     </label>
                     <!--Authの中のuserテーブルの中のusernameを取り出す-->
                 <ul id="links01">

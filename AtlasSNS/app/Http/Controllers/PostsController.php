@@ -60,5 +60,3 @@ class PostsController extends Controller
         return redirect('/top');
     }
 }
-
-// {{route('posts.update',$post->id)}}
