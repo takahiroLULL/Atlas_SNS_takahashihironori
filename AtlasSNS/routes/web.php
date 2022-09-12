@@ -52,10 +52,16 @@ Route::get('/search','UsersController@search');
 Route::post('users/{id}/follow','UsersController@follow')->name('follow');
 //フォロー解除機能
 Route::delete('users/{id}/unfollow','UsersController@unfollow')->name('unfollow');
+
+Route::get('/follow-list','FollowsController@index');
+
 // フォローリスト表示
 Route::get('/follow-list','FollowsController@followList');
+
+
+
 // フォロワーリスト表示
-Route::get('/follower-list','FollowsController@followerList');
+Route::get('/follower-list','FollowsController@index');
 //ログアウト機能
 Route::get('/logout','Auth\LoginController@logout');
 });

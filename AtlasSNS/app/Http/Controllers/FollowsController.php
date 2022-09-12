@@ -20,14 +20,5 @@ class FollowsController extends Controller
         $posts = Post::orderBy('created_at', 'desc')->get();
         return view('follows.followerList',compact('posts'));
     }
-
-    public function index(User $user)
-{
-    $all_users = $user->getAllUsers(auth()->user()->id);
-    return view('follows.followlist', [
-        'all_users'  => $all_users
-    ]);
-}
-
     
 }
