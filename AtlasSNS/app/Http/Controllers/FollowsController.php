@@ -18,7 +18,8 @@ class FollowsController extends Controller
     }
     public function followerList(){
         $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('follows.followerList',compact('posts'));
+        $images = User::get();
+        return view('follows.followerList',compact('posts','images'));
     }
     
 }

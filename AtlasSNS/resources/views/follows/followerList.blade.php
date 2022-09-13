@@ -2,7 +2,11 @@
 
 @section('content')
 <form action="/follower-list" method="GET">
-
+@foreach($images as $image)
+@if(Auth::user()->isFollowed($image->id))
+<img src="{{asset('storage/images/' .  $image->images)}}">
+@endif
+@endforeach
 @foreach($posts as $post)
 @if(Auth::user()->isFollowed($post->user_id))
 <p>
