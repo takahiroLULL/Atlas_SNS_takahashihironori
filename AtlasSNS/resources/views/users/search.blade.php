@@ -8,6 +8,7 @@
             <input name="keyword" placeholder="ユーザー名" ></input>
         </div>
         <button type="submit" ><img src="images/search.png"></button>
+        <!-- 空じゃなかったら -->
         @if(!empty($keyword))
         <p>
         検索ワード:{{ $keyword }}
@@ -20,7 +21,7 @@
 <!-- !で自分以外のユーザーを表示 -->
 @if ($user->id !== Auth::user()->id)
     <p>
-        <td class="user-icon"><img src={{$user->images}}></td>
+        <td class="user-icon"><img src="{{asset('storage/images/' .  $user->images)}}"></td>
         <td>{{$user->username}}</td>
         @if(auth()->user()->isFollowing($user->id))
         <td>

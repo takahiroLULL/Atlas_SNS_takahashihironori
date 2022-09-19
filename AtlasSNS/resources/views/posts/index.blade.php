@@ -37,7 +37,7 @@
            <a class="js-modal-close">閉じる</a>
         </div>
     </div>
-
+    
     @endforeach
 
 @endsection

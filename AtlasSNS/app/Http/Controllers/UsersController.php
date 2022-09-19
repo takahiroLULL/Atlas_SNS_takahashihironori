@@ -17,7 +17,6 @@ class UsersController extends Controller
         return view('users.profile');
     }
     public function search(Request $request){//bledeから送られてくるものを受け取る記述
-      // dd($request);
         $users = User::all();//users変数の中にユーザーテーブルの内容が全部入ってる
         //()は送るブレード先
         // return view('users.search')->with('users', $users);//変数usersをbladeに送る
@@ -126,6 +125,8 @@ class UsersController extends Controller
              return back();
          }
      }
+
+     
  
      // フォロー解除
      public function unfollow(User $user,$id)

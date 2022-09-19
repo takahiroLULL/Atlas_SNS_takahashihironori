@@ -45,6 +45,7 @@ class PostsController extends Controller
     public function update(Request $request )
     {   
        $text = $request->post;
+        // find＝探す
        $post = Post::find($text);
        $post->update(['post'=>$request->text]);
 

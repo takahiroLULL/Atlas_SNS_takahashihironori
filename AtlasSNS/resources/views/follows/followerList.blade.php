@@ -4,7 +4,9 @@
 <form action="/follower-list" method="GET">
 @foreach($images as $image)
 @if(Auth::user()->isFollowed($image->id))
+<a href="/followerListpage">
 <img src="{{asset('storage/images/' .  $image->images)}}">
+</a>
 @endif
 @endforeach
 @foreach($posts as $post)

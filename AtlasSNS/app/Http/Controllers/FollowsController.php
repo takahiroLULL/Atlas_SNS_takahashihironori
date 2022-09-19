@@ -16,6 +16,16 @@ class FollowsController extends Controller
         $images = User::get();
         return view('follows.followList',compact('posts','images'));
     }
+
+    public function followListpage(Request $request){
+        
+        $posts = $request->post;
+        $images = $request->image;
+        return view('follows.followListpage',compact('posts','images'));
+    }
+
+
+
     public function followerList(){
         $posts = Post::orderBy('created_at', 'desc')->get();
         $images = User::get();
