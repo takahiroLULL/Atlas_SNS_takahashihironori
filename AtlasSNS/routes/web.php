@@ -55,7 +55,7 @@ Route::delete('users/{id}/unfollow','UsersController@unfollow')->name('unfollow'
 // フォローリスト表示
 Route::get('/follow-list','FollowsController@followList');
 // フォローしてる人のページ遷移
-Route::get('/followListpage/{id}','FollowsController@followListpage');
+Route::get('/user/{id}','FollowsController@user');
 // フォロワーリスト表示
 Route::get('/follower-list','FollowsController@followerList');
 

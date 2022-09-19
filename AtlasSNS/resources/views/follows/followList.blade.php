@@ -6,7 +6,7 @@
 @foreach($images as $image)
 @if(Auth::user()->isFollowing($image->id))
 
-<a href="/followListpage/{{$image->id}}">
+<a href="/user/{{$image->id}}">
 <img src="{{  asset('/storage/images/' . $image->images) }}"></a>
 
 @endif
