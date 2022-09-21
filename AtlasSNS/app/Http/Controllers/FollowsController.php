@@ -17,15 +17,11 @@ class FollowsController extends Controller
         return view('follows.followList',compact('posts','images'));
     }
 
-    public function user(Request $request){
-        dd($request);
-        $users = User::all();
-        $id = $request->input('id');
-
-          $query = User::query();
-          $query->where('id',$id);
-          $users = $query->get();
-        return view('follows.user',compact('users','id'));
+    public function user($id){
+        $user_id = User::find($id);
+        $posts = Post::where('id',$id)->get();
+   
+        return view('follows.user',compact('user_id','posts'));
     }
 
 
