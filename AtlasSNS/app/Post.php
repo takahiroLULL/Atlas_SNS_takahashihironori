@@ -11,5 +11,14 @@ class Post extends Model
 public function user() { //1対多の「１」側なので単数系
 return $this->belongsTo('App\User');
     }
+
+    public function getTimeLines(Int $user_id, Array $follow_ids)
+    {
+        // 自身とフォローしているユーザIDを結合する
+        $follow_ids[] = $user_id;
+        return $this->whereIn('user_id', $follow_ids)->orderBy('created_at', 'DESC');
+    }
+    
+
 }
 //これでusersとのリレーションができた！//

@@ -96,8 +96,5 @@ class User extends Authenticatable
       {
           return $this->follows()->Where('following_id', $user_id)->get();
       }
-    
-
-   
 
     }
