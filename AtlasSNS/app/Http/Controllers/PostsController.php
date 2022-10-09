@@ -33,17 +33,9 @@ class PostsController extends Controller
         
     public function create(Request $request)
     {
-        // $validator = $request->validate([ // これだけでバリデーションできる
-        //         'post' => ['required', 'min1', 'max:150'], 
-        //     ]);
-        
-        // if ($validator->fails()) {
-        //     return redirect('/top')
-        //     ->withErrors($validator)
-        //     ->withInput();
-        //     }
-        
+ 
         $validator = $request->validate([
+            // viewから飛んでくる値（今回はinputの中の"newPost"
             'newPost' => ['required', 'min:1', 'max:200'], 
         ]);
      
@@ -53,23 +45,6 @@ class PostsController extends Controller
                 'post' => $post, 
             ]);
         return redirect('/top');
-
-       
-
-    }
-
-    public function store(Request $request)
-    {
-        //追記
-        $validator = Validator::make($request->all(), [
-            'post' => 'required|string|max:150'
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()
-            ->withInput()
-            ->withErrors($validator);
-        }
     }
 
     public function update(Request $request )

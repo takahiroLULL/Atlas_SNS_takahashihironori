@@ -10,7 +10,6 @@ use App\Follow;
 
 class FollowsController extends Controller
 {
-    //
     public function followList(){
         $posts = Post::orderBy('created_at', 'desc')->get();
         $images = User::get();
