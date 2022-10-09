@@ -14,9 +14,11 @@
 
 @foreach($posts as $post)
 @if(Auth::user()->isFollowing($post->user_id))
-
+<hr>
 <p>
+<a href="/user/{{$image->id}}">
 <img src="{{  asset('/storage/images/' . $post->user->images) }}">
+</a>
 <td>{{ $post->user->username }}</td></a>
                
               
@@ -24,6 +26,7 @@
                 <td>{{ $post->created_at }}</td>
                 
                 </p>
+</hr>
                 @endif
     @endforeach
    

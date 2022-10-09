@@ -38,7 +38,7 @@ class UsersController extends Controller
       if($request->ismethod('post')){
         $rulus =[
           'username' =>'required|min:2|max:12',
-          'mail' =>'required|email|min:5|max:40|unique:users',
+          'mail' =>'required|email|min:5|max:40',
           'password' =>'required|alpha_dash|min:8|max:20|confirmed|string',
           'password_confirmation' =>'required|alpha_dash|min:8|max:20|string',
           'bio' =>'max:150',

@@ -16,7 +16,7 @@
 @foreach($posts as $post)
 @if($post->user_id == Auth::id() || Auth::user()->isFollowing($post->user_id))
 <p>
-    <!-- 変数  モデル カラム -->
+ <hr>   <!-- 変数  モデル カラム -->
 <td>{{ $post->user->username }}</td><!--リレーションしたやつはテーブル名も書く必要がある-->
                 <td>{{ $post->post }}</td>
                 <td>{{ $post->created_at }}</td>
@@ -28,6 +28,7 @@
 </div>
 </p>
 @endif
+</hr>
 <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">

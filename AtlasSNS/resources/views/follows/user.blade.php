@@ -27,9 +27,12 @@
 
 @foreach($posts as $post)
 
+<hr>
+<img src="{{  asset('/storage/images/' . $post->user->images) }}">
+<p>{{$user_id->username}}  </p>
 <td>{{ $post->post }}</td>
 
 <td>{{ $post->created_at }}</td>
-
+</hr>
 @endforeach
 @endsection

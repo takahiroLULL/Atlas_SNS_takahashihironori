@@ -24,8 +24,8 @@ class FollowsController extends Controller
     
     public function user($id){
         $user_id = User::find($id);
-        $posts = Post::where('id',$id)->get();
-   
+        $posts = Post::where('user_id',$id)->get();
+
         return view('follows.user',compact('user_id','posts'));
     }
 
