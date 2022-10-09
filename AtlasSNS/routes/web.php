@@ -37,6 +37,8 @@ Route::group(['middleware' => ['auth']], function(){//middlewareのグループ�
 Route::get('/top','PostsController@index');
 //投稿機能
 Route::post('/create','PostsController@create');
+//投稿バリデーション
+// Route::post('/create','PostsController@store');
 //投稿編集
 Route::post('/update/{id}','PostsController@update')->name('posts.update');
 //投稿削除

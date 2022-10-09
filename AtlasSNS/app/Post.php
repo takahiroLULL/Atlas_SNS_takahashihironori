@@ -12,6 +12,16 @@ public function user() { //1対多の「１」側なので単数系
 return $this->belongsTo('App\User');
     }
 
+    public function tweetStore(Int $user_id, Array $data)
+    {
+        $this->user_id = $user_id;
+        $this->text = $data['text'];
+        $this->save();
+
+        return;
+    }
+
+    
     public function getTimeLines(Int $user_id, Array $follow_ids)
     {
         // 自身とフォローしているユーザIDを結合する

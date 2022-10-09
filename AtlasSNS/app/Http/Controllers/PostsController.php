@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth; 
@@ -30,34 +31,45 @@ class PostsController extends Controller
         return view('posts.index',compact('posts'));
         }
         
-
-    // public function index(Post $post, Follow $follow){
-
-    //     $user = auth()->user();
-    //     $follow_ids = $follow->followingIds($user->id);
-    //     // followed_idだけ抜き出す
-    //     $following_ids = $follow_ids->pluck('followed_id')->toArray();
-    //     $timelines = $post->getTimelines($user->id, $following_ids);
-    //     dd($timelines);
-    //     return view('posts.index', [
-    //         'timelines' => $timelines
-    //     ]);
-
-    // }
-
     public function create(Request $request)
     {
         // $validator = $request->validate([ // これだけでバリデーションできる
-        //         'post' => ['required', 'string', 'max:150'], 
+        //         'post' => ['required', 'min1', 'max:150'], 
         //     ]);
-        $post = $request->newPost;
-
-        Post::create ([
-            'user_id' => Auth::user()->id,
-            'post' => $post, 
-        ]);
         
+        // if ($validator->fails()) {
+        //     return redirect('/top')
+        //     ->withErrors($validator)
+        //     ->withInput();
+        //     }
+        
+        $validator = $request->validate([
+            'newPost' => ['required', 'min:1', 'max:200'], 
+        ]);
+     
+            $post = $request->newPost;
+            Post::create ([
+                'user_id' => Auth::user()->id,
+                'post' => $post, 
+            ]);
         return redirect('/top');
+
+       
+
+    }
+
+    public function store(Request $request)
+    {
+        //追記
+        $validator = Validator::make($request->all(), [
+            'post' => 'required|string|max:150'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withInput()
+            ->withErrors($validator);
+        }
     }
 
     public function update(Request $request )
