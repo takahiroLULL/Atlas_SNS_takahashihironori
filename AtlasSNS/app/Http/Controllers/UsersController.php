@@ -38,13 +38,14 @@ class UsersController extends Controller
       if($request->ismethod('post')){
         $rulus =[
           'username' =>'required|min:2|max:12',
-          'mail' =>'required|email|min:5|max:40',
+          'mail' =>'required|email|min:5|max:40|unique:users,mail,'.Auth::user()->id.'id',
+          // unique:ユニークチェックしたい（メアド）,除外したい条件,除外した条件カラム   比べるのはid 除外したいものを指定 idを使ったら判別
           'password' =>'required|alpha_dash|min:8|max:20|confirmed|string',
           'password_confirmation' =>'required|alpha_dash|min:8|max:20|string',
           'bio' =>'max:150',
           'iconimage' => 'image|mimes:jpg,png,bmp,gif,svg',
         ];
-        
+
         $message = [
           'username.required' => 'ユーザー名を入力してください',
           'username.min' => 'ユーザー名は2文字以上、12文字以下で入力してください',
@@ -53,7 +54,7 @@ class UsersController extends Controller
           'mail.email' => '有効なEメールアドレスを入力してください',
           'mail.min' => 'メールアドレスは5文字以上、40文字以下で入力してください',
           'mail.max' => 'メールアドレスは5文字以上、40文字以下で入力してください',
-          'mail.unique:users' => 'このメールアドレスは既に使われています',
+          'mail.unique' => 'このメールアドレスは既に使われています',
           'password.required' => 'パスワードを入力してください',
           'password.min' => 'パスワードは8文字以上、20文字以下で入力してください',
           'password.max' => 'パスワードは8文字以上、20文字以下で入力してください',
