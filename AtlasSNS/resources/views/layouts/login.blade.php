@@ -44,23 +44,23 @@
         <div id="container">
             @yield('content')
         </div>
-        <div id="side-bar">
+        <div id="side-bar" >
             <div id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div>
-                <p>フォロー数</p>
+                <p>フォロー数     {{ Auth::user()->getFollowCount(Auth::user()->id) }}名</p>
                 <!-- blade〜モデルでやりとり -->
                 <!-- ログインしている::ユーザー()->modelのメソッド（フォローしている人の数）→id -->
-                <p>{{ Auth::user()->getFollowCount(Auth::user()->id) }}名</p>
+                <p><button type="button"><a href="/follow-list" class="side-btn">フォローリスト</a></butoon></p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-                <div>
-                <p>フォロワー数</p>
-                <p>{{ Auth::user()->getFollowerCount(Auth::user()->id) }}名</p>
+                
+                <div >
+                <p>フォロワー数   {{ Auth::user()->getFollowerCount(Auth::user()->id) }}名</p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p><button type="button"><a href="/follower-list" class="side-btn">フォロワーリスト</a></butoon></p>
             </div>
-            <p class="btn"><button type="button"><a href="/search">ユーザー検索</a></butoon></p>
+            <hr>
+            <p><button type="button"><a href="/search" class="side-btn">ユーザー検索</a></butoon></p>
         </div>
     </div>
     <footer>

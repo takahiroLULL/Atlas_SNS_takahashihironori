@@ -19,12 +19,58 @@ header{
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    text-align: center;
 }
+
+#confirm{
+  text-align: left;
+}
+/* サイドバーのボタン */
+.side-btn{
+  background: #186AC9;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 260px;
+    padding: 10px 25px;
+    color: #f1f1f1;
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* フォローボタン */
+.unfollow-btn{
+  background: #186AC9;
+  color: #fff;
+}
+
+.follow-btn{
+  background: red;
+  color: #fff;
+}
+/* 投稿 */
+.post.username{
+  text-align: left;
+}
+
+.username{
+  text-align: left;
+}
+
+.current_timestamp{
+  text-align: right;
+}
+
 
 /* アコーディオンメニュー */
 .menu {
     width: 100%;
     padding: 10px 10px 20px;
+    text-align: right;
   }
   .menu input {
     display: none; /*チェックボックスを隠す*/
@@ -103,7 +149,7 @@ header{
     margin: auto;
   }
 
-  投稿編集
+  /* 投稿編集 */
   .content{
     margin: 0 auto;
     padding: 40px;
@@ -131,3 +177,6 @@ header{
     width: 60%;
 }
 
+.input{
+  background-color: red;
+}

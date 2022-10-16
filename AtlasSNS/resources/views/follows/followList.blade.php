@@ -19,11 +19,11 @@
 <a href="/user/{{$image->id}}">
 <img src="{{  asset('/storage/images/' . $post->user->images) }}">
 </a>
-<td>{{ $post->user->username }}</td></a>
+<p><td>{{ $post->user->username }}</td</p></a>
                
               
-                <td>{{ $post->post }}</td>
-                <td>{{ $post->created_at }}</td>
+                <p><td class="post">{{ $post->post }}</td><td class="current_timestamp">{{ $post->created_at }}</td></p>
+                
                 
                 </p>
 </hr>
