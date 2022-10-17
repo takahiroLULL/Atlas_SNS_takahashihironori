@@ -2,7 +2,7 @@
 
 @section('content')
 <form action="/follow-list" method="GET">
-<p>Follow list</p>
+Follow list
 @foreach($images as $image)
 @if(Auth::user()->isFollowing($image->id))
 

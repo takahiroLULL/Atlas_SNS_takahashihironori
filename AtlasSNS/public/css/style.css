@@ -44,15 +44,17 @@ header{
 
 /* フォローボタン */
 .unfollow-btn{
-  background: #186AC9;
+  background: #33CCFF;
   color: #fff;
+  border: none;
 }
 
 .follow-btn{
-  background: red;
+  background: #FF3366;
   color: #fff;
+  border: 0;
 }
-/* 投稿 */
+/* 投稿一覧 */
 .post.username{
   text-align: left;
 }
@@ -65,12 +67,26 @@ header{
   text-align: right;
 }
 
+.content{
+  text-align: right;
+}
+
+/* プロフィール編集 */
+.profile{
+  text-align: center;
+}
+
+.profile-btn{
+  background: red;
+  color: #fff;
+  border: none;
+}
+
 
 /* アコーディオンメニュー */
 .menu {
     width: 100%;
     padding: 10px 10px 20px;
-    text-align: right;
   }
   .menu input {
     display: none; /*チェックボックスを隠す*/
@@ -179,4 +195,8 @@ header{
 
 .input{
   background-color: red;
+}
+
+.search-user{
+  text-align: center;
 }

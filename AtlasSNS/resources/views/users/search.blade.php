@@ -5,9 +5,9 @@
     <form action="/search" method="GET">
         @csrf
         <div>
-            <input name="keyword" placeholder="ユーザー名" ></input>
+            <input name="keyword" placeholder="ユーザー名" ></input><button type="submit" ><img src="images/search.png"></button>
         </div>
-        <button type="submit" ><img src="images/search.png"></button>
+        
         <!-- 空じゃなかったら -->
         @if(!empty($keyword))
         <p>
@@ -16,11 +16,12 @@
         @endif
     </form>
 </div>
-
+<hr>
 @foreach($users as $user)
 <!-- !で自分以外のユーザーを表示 -->
 @if ($user->id !== Auth::user()->id)
-    <p>
+<div class = "search-user">
+<p>
         <td class="user-icon"><img src="{{asset('storage/images/' .  $user->images)}}"></td>
         <td>{{$user->username}}</td>
         @if(auth()->user()->isFollowing($user->id))
@@ -39,8 +40,8 @@
             </form>
         </td>
         @endif
-
 </p>
+</div>
 @endif
 @endforeach
 
