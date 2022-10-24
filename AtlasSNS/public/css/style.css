@@ -27,9 +27,8 @@ header{
 }
 /* サイドバーのボタン */
 .side-btn{
-  background: #186AC9;
-    border-radius: 50px;
-    position: relative;
+    border-radius: 50px;  /* 外側を丸める */
+    position: relative; /* ボックスの配置方法を指定  */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -40,20 +39,17 @@ header{
     transition: 0.3s ease-in-out;
     font-weight: 500;
     text-align: right;
+    text-decoration: none;
 }
 
-/* フォローボタン */
-.unfollow-btn{
-  background: #33CCFF;
-  color: #fff;
+/* 投稿 */ 
+.post-input{
+  height: 100px;
+  width: 70%;
   border: none;
 }
 
-.follow-btn{
-  background: #FF3366;
-  color: #fff;
-  border: 0;
-}
+
 /* 投稿一覧 */
 .post.username{
   text-align: left;
@@ -81,7 +77,6 @@ header{
   color: #fff;
   border: none;
 }
-
 
 /* アコーディオンメニュー */
 .menu {
@@ -164,6 +159,12 @@ header{
     bottom: 0;
     margin: auto;
   }
+
+
+/* 投稿一覧 */
+.show-post{
+  display: flex;
+}
 
   /* 投稿編集 */
   .content{

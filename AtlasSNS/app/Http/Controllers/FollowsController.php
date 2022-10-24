@@ -12,20 +12,20 @@ class FollowsController extends Controller
 {
     public function followList(){
         $posts = Post::orderBy('created_at', 'desc')->get();
-        $images = User::get();
-        return view('follows.followList',compact('posts','images'));
+        $users = User::get();
+        return view('follows.followList',compact('posts','users'));
     }
     
     public function followerList(){
         $posts = Post::orderBy('created_at', 'desc')->get();
-        $images = User::get();
-        return view('follows.followerList',compact('posts','images'));
+        $users = User::get();
+
+        return view('follows.followerList',compact('posts','users'));
     }
     
     public function user($id){
         $user_id = User::find($id);
         $posts = Post::where('user_id',$id)->get();
-
         return view('follows.user',compact('user_id','posts'));
     }
 

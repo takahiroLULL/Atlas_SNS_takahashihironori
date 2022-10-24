@@ -3,28 +3,31 @@
 @section('content')
 <form action="/follower-list" method="GET">
 Follower list
-@foreach($images as $image)
-@if(Auth::user()->isFollowed($image->id))
+@foreach($users as $user)
+@if(Auth::user()->isFollowed($user->id))
 
-<a href="/user/{{$image->id}}">
-<img src="{{asset('storage/images/' .  $image->images)}}">
-</a>
+<a href="/user/{{$user->id}}">
+<img src="{{asset('storage/images/' .  $user->images)}}" ></a>
+
 @endif
 @endforeach
 @foreach($posts as $post)
 @if(Auth::user()->isFollowed($post->user_id))
-<hr>
+
 <p>
-<a href="/user/{{$image->id}}">
+<hr>
+<div class="follwer-post">
+<a href="/user/{{$post->user_id}}">
 <img src="{{  asset('/storage/images/' . $post->user->images) }}">
 </a>
-<td>{{ $post->user->username }}</td>
+<p><td>{{ $post->user->username }}</td></p></a>
 
-                <td>{{ $post->post }}</td>
-                <td>{{ $post->created_at }}</td>
+<p><td>{{ $post->post }}</td>
+<td>{{ $post->created_at }}</td></p>
                 
-                </p>
+</p>
 </hr>
+</div>
                 @endif
     @endforeach
    

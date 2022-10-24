@@ -22,12 +22,13 @@
 @if ($user->id !== Auth::user()->id)
 <div class = "search-user">
 <p>
+    
         <td class="user-icon"><img src="{{asset('storage/images/' .  $user->images)}}"></td>
         <td>{{$user->username}}</td>
         @if(auth()->user()->isFollowing($user->id))
         <td>
             <form action="{{ route('unfollow',['id'=>$user->id]) }}" method="post" >
-                <input type="submit" value="フォロー解除" class="unfollow-btn">
+                <input type="submit" value="フォロー解除" class="btn btn-danger">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
             </form>
@@ -36,7 +37,7 @@
         <td>
             <form action="{{ route('follow',['id'=>$user->id]) }}"  method="post" >
             {{ csrf_field() }} 
-                <input type="submit" value="フォローする" class="follow-btn">
+                <input type="submit" value="フォローする" class="btn btn-primary">
             </form>
         </td>
         @endif
