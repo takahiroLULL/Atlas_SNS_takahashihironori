@@ -33,6 +33,7 @@
                     <label for="menu_bar01">{{ Auth::user()->username }}さん<img src="{{  asset('/storage/images/' . Auth::user()->images) }}">
                     </label>
                     <!--Authの中のuserテーブルの中のusernameを取り出す-->
+                    
                 <ul id="links01">
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール編集
@@ -53,16 +54,16 @@
                 <p>フォロー数     {{ Auth::user()->getFollowCount(Auth::user()->id) }}名</p>
                 <!-- blade〜モデルでやりとり -->
                 <!-- ログインしている::ユーザー()->modelのメソッド（フォローしている人の数）→id -->
-                <p><button type="button" class="btn btn-primary" ><a href="/follow-list">フォローリスト</a></butoon></p>
+                <p><button type="button" class="btn btn-primary" onclick="location.href='./follow-list'" ><span class="text-white">フォローリスト</span></butoon></p>
                 </div>
                 
                 <div >
                 <p>フォロワー数   {{ Auth::user()->getFollowerCount(Auth::user()->id) }}名</p>
                 </div>
-                <p><button type="button" class="btn btn-primary"><a href="/follower-list">フォロワーリスト</a></butoon></p>
+                <p><button type="button" class="btn btn-primary" onclick="location.href='./follower-list'"><span class="text-white">フォロワーリスト</span></butoon></p>
             </div>
             <hr>
-            <p><button type="button"class="btn btn-primary" href="/search"><a href="/search">ユーザー検索</a></butoon></p>
+            <p><button type="button"class="btn btn-primary" onclick="location.href='./search'"><a href="/search"><span class="text-white">ユーザー検索</span></a></butoon></p>
         </div>
     </div>
     <footer>

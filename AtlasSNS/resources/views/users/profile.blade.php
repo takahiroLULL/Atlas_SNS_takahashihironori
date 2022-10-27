@@ -9,7 +9,7 @@
 {{ csrf_field() }}
 
 @foreach($errors->all() as $error)
-<li>{{$error}}</li>
+<p class="text-danger">{{$error}}</li>
 @endforeach
 <div class="profile">
 <img src="{{  asset('/storage/images/' . Auth::user()->images) }}">

@@ -8,9 +8,10 @@
       
         
         @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <p class="text-danger">{{ $error }}</p>
             @endforeach
 </div>
+
 {!! Form::close() !!}
 
 @foreach($posts as $post)
@@ -19,10 +20,10 @@
 <p>
 
  <hr> 
- <div class="show-post">
+ 
    <!-- 変数  モデル カラム -->
  <img src="{{  asset('/storage/images/' . $post->user->images) }}">
-
+ <div class="show-post">
 <p><td class="username">{{ $post->user->username }}</td></p><!--リレーションしたやつはテーブル名も書く必要がある-->
 <p><td class="post">{{ $post->post }}</td></p>
 <div class="current_timestamp">
@@ -34,9 +35,10 @@
                 <td><a class="js-modal-open" href="{{$post->id}}" post="{{$post->post}}" post_id="{{$post->id}}"><img src="images/edit.png" ></a></td>
                 <td><a  href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="images/trash-h.png"></a></td>
 </div>
+</hr>
 </p>
 @endif
-</hr>
+
 <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
@@ -44,7 +46,7 @@
                {{csrf_field()}}
                 <textarea name="text" class="modal_post" ></textarea>
                 <input type="hidden" name="post" class="modal_id" value="PUT">
-                <input type="submit" value="更新" >
+               <img src="images/edit.png">
            </form>
            <a class="js-modal-close"><input type="submit" value="閉じる" ></a>
         </div>
