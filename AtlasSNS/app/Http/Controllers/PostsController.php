@@ -39,8 +39,8 @@ class PostsController extends Controller
             'newPost' => 'required|min:1|max:150',
         ],
         [
-            'newPost.required' => '入力必須です',
-            'newPost.max' => '最大150字までです',
+            'newPost.required' => '入れろ',
+            'newPost.max' => 'なげえなおい',
         ]);
      
             $post = $request->newPost;

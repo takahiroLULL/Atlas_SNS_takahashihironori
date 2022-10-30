@@ -24,10 +24,11 @@
    <!-- 変数  モデル カラム -->
 <div class="show-post">
 <img src="{{  asset('/storage/images/' . $post->user->images) }}" width="65px" height="65px" class="show-img">
-<p class="show-name"><td>{{ $post->user->username }}</td></p><!--リレーションしたやつはテーブル名も書く必要がある-->
-<p class="posts"><td>{{ $post->post }}</td></p>
+<td class="show-name">{{ $post->user->username }}</td><!--リレーションしたやつはテーブル名も書く必要がある-->
+<td class="current_timestamp" >{{ $post->created_at }}</td></p>
+<p class="posts">{{ $post->post }}</p>
 
-<p class="current_timestamp"><td>{{ $post->created_at }}</td></p>
+
                 
                 @if($post->user_id == Auth::id())
                 <div class="content">
@@ -45,7 +46,7 @@
                {{csrf_field()}}
                 <textarea name="text" class="modal_post" ></textarea>
                 <input type="hidden" name="post" class="modal_id" value="PUT">
-               <img src="images/edit.png" width="45px" height="45px">
+               <input type="image"  src="images/edit.png">
            </form>
            <a class="js-modal-close"><input type="submit" value="閉じる" class="btn btn-danger"></a>
         </div>

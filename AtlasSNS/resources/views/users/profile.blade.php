@@ -13,14 +13,15 @@
 @endforeach
 <div class="profile">
 <img src="{{  asset('/storage/images/' . Auth::user()->images) }}" class="user-icon">
-        <p class="p-name">username:<input type="text" name="username" value="{{ Auth::user()->username }}"><br></p>
-        <p class="p-mail">E-mail Adress:<input type="text" name="mail" value="{{ Auth::user()->mail }}"><br></p> 
-        <p class="p-password">password:<input type="password" name="password" ><br></p>
-        <p class="p-confirmation">password confirmation:<input type="password" name="password confirmation"><br></p> 
-        <p class="p-bio">bio:<input type="text" name="bio" value="{{ Auth::user()->bio }}"><br></p> 
-        <p class="p-img">icon image: <input type="file" name="iconimage"><br></p> 
 
-<input type='submit' value='更新' class="profile-btn">
+        <td class="p-name">username:<input type="text" name="username" value="{{ Auth::user()->username }}"></td>
+        <td><br class="p-mail">E-mail Adress:<input type="text" name="mail" value="{{ Auth::user()->mail }}"><br></td>
+        <td><br class="p-password">password:<input type="password" name="password" ><br></td>
+        <td><br class="p-confirmation">password confirmation:<input type="password" name="password confirmation"><br></td>
+        <td><br class="p-bio">bio:<input type="text" name="bio" value="{{ Auth::user()->bio }}"><br></td>
+        <td><br class="p-img">icon image: <input type="file" name="iconimage"><br></td>
+
+<input type='submit' value='更新' class="btn btn-danger">
 </div>
 {!! Form::close() !!}
 

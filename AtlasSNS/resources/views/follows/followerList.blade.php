@@ -16,7 +16,7 @@ Follower list
 
 <p>
 <hr>
-<div class="follwer-post">
+<div class="follower-post">
 <a href="/user/{{$post->user_id}}">
 <img src="{{  asset('/storage/images/' . $post->user->images) }}" class="user-icon">
 </a>
@@ -24,10 +24,10 @@ Follower list
 
 <p><td>{{ $post->post }}</td>
 <td>{{ $post->created_at }}</td></p>
-                
+</div>               
 </p>
 </hr>
-</div>
+
                 @endif
     @endforeach
    

@@ -64,7 +64,7 @@
                 <div >
                 <p>フォロワー数   {{ Auth::user()->getFollowerCount(Auth::user()->id) }}名</p>
                 </div>
-                <p class="side-btn"><div class="btn btn-primary"><a href="follower-list"><span class="text-white">フォロワーリスト</span></a></div></p>
+                <p class="side-btn"><div class="btn btn-primary"><a href="/follower-list"><span class="text-white">フォロワーリスト</span></a></div></p>
             </div>
             <hr>
             <p><div class="btn btn-primary" ><a href="/search"><span class="text-white">ユーザー検索</span></a></div></p>
