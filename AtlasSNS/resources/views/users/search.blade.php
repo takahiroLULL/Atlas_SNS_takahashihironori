@@ -5,7 +5,7 @@
     <form action="/search" method="GET">
         @csrf
         <div>
-            <input name="keyword" placeholder="ユーザー名" ></input><button type="submit" ><img src="images/search.png"></button>
+            <input name="keyword" placeholder="ユーザー名" ></input><button type="submit" ><img src="images/search.png" class="user-icon"></button>
         </div>
         
         <!-- 空じゃなかったら -->
@@ -22,7 +22,7 @@
 @if ($user->id !== Auth::user()->id)
 <div class = "search-user">
 <p>
-        <td class="user-icon"><img src="{{asset('storage/images/' .  $user->images)}}"></td>
+        <td class="user-icon"><img src="{{asset('storage/images/' .  $user->images)}}" ></td>
         <td>{{$user->username}}</td>
         @if(auth()->user()->isFollowing($user->id))
         <td>

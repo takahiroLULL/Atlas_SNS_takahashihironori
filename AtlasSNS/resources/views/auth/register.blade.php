@@ -10,27 +10,31 @@
 {{ Form::text('username',null,['class' => 'input']) }}
 
 @error('username')
-  <li>{{$message}}</li>
+  <li class="text-danger">{{$message}}</li>
 @enderror
 
 {{ Form::label('メールアドレス') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
 
 @error('mail')
-  <li>{{$message}}</li>
+  <li class="text-danger">{{$message}}</li>
 @enderror
 
 {{ Form::label('パスワード') }}
 {{ Form::password('password',null,['class' => 'input']) }}
 
 @error('password')
-  <li>{{$message}}</li>
+  <li class="text-danger">{{$message}}</li>
 @enderror
 
 {{ Form::label('パスワード確認') }}
 {{ Form::password('password_confirmation',null,['class' => 'input']) }}
 
-{{ Form::submit('REGISTER',['class' => 'register-btn']) }}
+@error('password')
+  <li class="text-danger">{{$message}}</li>
+@enderror
+
+{{ Form::submit('REGISTER',['class' => 'btn btn-danger']) }}
 
 <p><a href="/login">ログイン画面へ戻る</a></p>
 

@@ -7,7 +7,7 @@ Follow list
 @if(Auth::user()->isFollowing($user->id))
 
 <a href="/user/{{$user->id}}">
-<img src="{{  asset('/storage/images/' . $user->images) }}" ></a>
+<img src="{{  asset('/storage/images/' . $user->images) }}" class="user-icon"></a>
 
 @endif
 @endforeach
@@ -19,7 +19,7 @@ Follow list
 <div class="follow-post">
 <!-- 誰の投稿のIDを表示するか、、 投稿->ユーザー-->
 <a href="/user/{{$post->user_id}}">
-<img src="{{  asset('/storage/images/' . $post->user->images) }}">
+<img src="{{  asset('/storage/images/' . $post->user->images) }}" class="user-icon">
 </a>
 <p><td>{{ $post->user->username }}</td></p></a>
                

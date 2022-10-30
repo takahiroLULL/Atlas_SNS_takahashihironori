@@ -11,19 +11,16 @@ body{
     background-image: linear-gradient(0deg, #ddf314 0%, #1e72c0 100%);
 }
 
-.btn{
-    background: red;
-    color: #fff;
-    border: none;
-}
-
-.register-btn{
-    background: red;
-    color: #fff;
-    border: none;
-}
-
 .Social{
     color: #fff;
 }
+
+.login-body{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(189, 184, 184);
+    padding: 4rem;
+}
+
+
 

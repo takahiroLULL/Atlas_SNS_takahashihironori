@@ -25,20 +25,24 @@
 </head>
 <body>
     <header>
+        
         <div id = "head">
             <!--"/top"に戻るように     Atlasの画像を置く  画像を押せばtopに戻る記述-->
-        <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}" ></a></h1> 
+            <div class="atlas-zone">
+        <a href="/top"><img src="{{ asset('images/atlas.png') }}" class="atlas-img"></a>
+           </div>
             <div class="menu">
                     <input type="checkbox" id="menu_bar01"/>
-                    <label for="menu_bar01">{{ Auth::user()->username }}さん<img src="{{  asset('/storage/images/' . Auth::user()->images) }}">
+                    <label for="menu_bar01">{{ Auth::user()->username }}さん<img src="{{  asset('/storage/images/' . Auth::user()->images) }}" class="user-icon">
                     </label>
+                    
                     <!--Authの中のuserテーブルの中のusernameを取り出す-->
                     
                 <ul id="links01">
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール編集
-                    </a></li>
-                    <li><a href="/logout">ログアウト</a></li>
+                    <li><a href="/top"><span class="text-muted">HOME</span></a></li>
+                    <li class="bg-primary"><a href="/profile"><span class="text-white">プロフィール編集
+</span></a></li>
+                    <li ><a href="/logout"><span class="text-muted">ログアウト</span></a></li>
                 </ul>
             </div>
         </div>
@@ -54,16 +58,16 @@
                 <p>フォロー数     {{ Auth::user()->getFollowCount(Auth::user()->id) }}名</p>
                 <!-- blade〜モデルでやりとり -->
                 <!-- ログインしている::ユーザー()->modelのメソッド（フォローしている人の数）→id -->
-                <p><button type="button" class="btn btn-primary" onclick="location.href='./follow-list'" ><span class="text-white">フォローリスト</span></butoon></p>
+                <p class="side-btn"><div class="btn btn-primary"><a href="/follow-list"><span class="text-white">フォローリスト</span></a></div></p>
                 </div>
                 
                 <div >
                 <p>フォロワー数   {{ Auth::user()->getFollowerCount(Auth::user()->id) }}名</p>
                 </div>
-                <p><button type="button" class="btn btn-primary" onclick="location.href='./follower-list'"><span class="text-white">フォロワーリスト</span></butoon></p>
+                <p class="side-btn"><div class="btn btn-primary"><a href="follower-list"><span class="text-white">フォロワーリスト</span></a></div></p>
             </div>
             <hr>
-            <p><button type="button"class="btn btn-primary" onclick="location.href='./search'"><a href="/search"><span class="text-white">ユーザー検索</span></a></butoon></p>
+            <p><div class="btn btn-primary" ><a href="/search"><span class="text-white">ユーザー検索</span></a></div></p>
         </div>
     </div>
     <footer>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<img src="{{asset('storage/images/' .  $user_id->images)}}" >
+<img src="{{asset('storage/images/' .  $user_id->images)}}" class="user-icon">
 
 name  {{$user_id->username}}
 

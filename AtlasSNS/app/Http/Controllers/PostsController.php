@@ -36,7 +36,11 @@ class PostsController extends Controller
  
         $validator = $request->validate([
             // viewから飛んでくる値（今回はinputの中の"newPost"
-            'newPost' => ['required', 'min:1', 'max:200'], 
+            'newPost' => 'required|min:1|max:150',
+        ],
+        [
+            'newPost.required' => '入力必須です',
+            'newPost.max' => '最大150字までです',
         ]);
      
             $post = $request->newPost;

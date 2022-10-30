@@ -3,8 +3,8 @@
 @section('content')
 {!! Form::open(['url' => '/create','method'=>'Post']) !!}
 <div>
-<img src="{{  asset('/storage/images/' . Auth::user()->images) }}">
-            <input class="post-input" name="newPost" placeholder="投稿内容を入力してください"><button type="submit"><img src="images/post.png"></button></input>
+<img src="{{  asset('/storage/images/' . Auth::user()->images) }}" class="user-icon">
+            <input class="post-input" name="newPost" placeholder="投稿内容を入力してください"><button type="submit"><img src="images/post.png" class="user-icon"></button></input>
       
         
         @foreach ($errors->all() as $error)
@@ -22,18 +22,17 @@
  <hr> 
  
    <!-- 変数  モデル カラム -->
- <img src="{{  asset('/storage/images/' . $post->user->images) }}">
- <div class="show-post">
-<p><td class="username">{{ $post->user->username }}</td></p><!--リレーションしたやつはテーブル名も書く必要がある-->
-<p><td class="post">{{ $post->post }}</td></p>
-<div class="current_timestamp">
-                <p><td>{{ $post->created_at }}</td></p>
-                </div>
+<div class="show-post">
+<img src="{{  asset('/storage/images/' . $post->user->images) }}" width="65px" height="65px" class="show-img">
+<p class="show-name"><td>{{ $post->user->username }}</td></p><!--リレーションしたやつはテーブル名も書く必要がある-->
+<p class="posts"><td>{{ $post->post }}</td></p>
+
+<p class="current_timestamp"><td>{{ $post->created_at }}</td></p>
                 
                 @if($post->user_id == Auth::id())
                 <div class="content">
-                <td><a class="js-modal-open" href="{{$post->id}}" post="{{$post->post}}" post_id="{{$post->id}}"><img src="images/edit.png" ></a></td>
-                <td><a  href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="images/trash-h.png"></a></td>
+                <td><a class="js-modal-open" href="{{$post->id}}" post="{{$post->post}}" post_id="{{$post->id}}"><img src="images/edit.png" width="45px" height="45px"></a></td>
+                <td><a  href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="images/trash-h.png" width ="50px" height="50px"></a></td>
 </div>
 </hr>
 </p>
@@ -46,12 +45,13 @@
                {{csrf_field()}}
                 <textarea name="text" class="modal_post" ></textarea>
                 <input type="hidden" name="post" class="modal_id" value="PUT">
-               <img src="images/edit.png">
+               <img src="images/edit.png" width="45px" height="45px">
            </form>
-           <a class="js-modal-close"><input type="submit" value="閉じる" ></a>
+           <a class="js-modal-close"><input type="submit" value="閉じる" class="btn btn-danger"></a>
         </div>
     </div>
 </div>
+
     @endif
     @endforeach
 

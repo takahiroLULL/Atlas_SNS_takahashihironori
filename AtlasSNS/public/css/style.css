@@ -14,12 +14,18 @@ header{
     flex-flow: row wrap;
 }
 #container{
+  position: relative;
     flex: 0 0 80%;
 }
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
     text-align: center;
+}
+
+#head{
+  display: flex;
+  position: relative;
 }
 
 #confirm{
@@ -33,20 +39,36 @@ header{
   border: none;
 }
 
+/* サイドバーのボタン */
+.side-btn{
+  text-align: right;
+}
 
 /* 投稿一覧 */
-.post.username{
-  text-align: left;
+.show-post{
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  padding: 0 0 0 10%;
 }
 
-.username{
-  text-align: left;
+.show-img{
+  top: 0%;
+  left: 85px;
 }
+
+.show-name{
+  
+}
+
+.posts{
+  
+} 
 
 .current_timestamp{
-  text-align: right;
-  margin: 0 10px 20px 0;
-}
+ 
+} 
 
 .content{
   text-align: right;
@@ -65,22 +87,26 @@ header{
 
 /* アコーディオンメニュー */
 .menu {
-    width: 100%;
-    padding: 10px 10px 20px;
+    width: 20%; /* 領域の幅の広さ */
+    padding: 0; /* 上下左右のパディング */
+    text-align: center;
+    position: absolute;
+    right: 0px;
+    top: 45px;
   }
   .menu input {
     display: none; /*チェックボックスを隠す*/
   }
   /*バー部分*/
   .menu label {
-    cursor :pointer;
-    display: block;
-    text-decoration: none;
+   cursor :pointer; /* マウスカーソルの指定 リンクポインターにしている */
+    display: block; /* ブロックボックスとして表示 */
+    text-decoration: none; /* テキストの装飾の指定 */
     color: #fff;
-    line-height: 1;
-    position: relative;
-    margin: 0 0 10px;
-    padding: 10px;
+    line-height: 1; /* 行の高さ */
+ /* ボックスの配置方法 */
+    margin: 0 ;
+    padding: 0;
   }
   /*開いたときに表示される部分*/
   .menu ul {
@@ -102,8 +128,8 @@ header{
   #menu_bar02:checked ~ #links02 li {
     height: auto; /*開いたときに表示されるliの高さ*/
     opacity: 1;
-    background: #f1f1f1;
-    padding: 10px;
+    background: #ffffff;
+    padding: 31px;
   }
    /*開いたときの下の余白*/
   #menu_bar01:checked ~ #links01 li:last-child,
@@ -140,16 +166,10 @@ header{
     transform: rotate(-45deg);
     position:absolute;
     right: 2%;
-    top: 7%;
-    bottom: 0;
+    top: 0;
+    bottom: 75%;
     margin: auto;
   }
-
-
-/* 投稿一覧 */
-.show-post{
-  display: block;
-}
 
   /* 投稿編集 */
   .content{
@@ -195,3 +215,75 @@ header{
 .user-form td{
   margin: 0 10px 20px 0;
 }
+
+/* アトラス画像 */
+.atlas-img{
+  display: block;
+  padding: auto;
+  height: 40%;
+}
+
+.atlas-zone{
+  margin: 0%;
+  height: auto;
+}
+
+/* ユーザーのアイコンのサイズ指定 */
+.user-icon{
+  width: 65px;
+	height: 65px;
+}
+
+/* プロフィール画面 */
+
+/* .profile{
+  position: absolute;
+}
+
+.profile p{
+  display: flex;
+  height: 20%;
+  width: 40%;
+}
+
+.profile img{
+  position: absolute;
+    left: 50%;
+    top: 20%;
+}
+
+.p-name{
+  position: absolute;
+  display: flex;
+  top: 25%;
+  left: 75%;
+}
+
+.p-mail{
+  position: absolute;
+  display: flex;
+  top: 55%;
+  left: 75%;
+}
+
+.p-password{
+  position: absolute;
+  display: flex;
+  top: 100%;
+  left: 75%;
+}
+
+.p-confirmation{
+  position: absolute;
+  display: flex;
+  top: 150%;
+  left: 75%;
+}
+
+.p-bio{
+  position: absolute;
+  display: flex;
+  top: 225%;
+  left: 75%;
+} */
+
