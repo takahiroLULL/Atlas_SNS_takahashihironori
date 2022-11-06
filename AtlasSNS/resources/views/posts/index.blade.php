@@ -2,8 +2,10 @@
 
 @section('content')
 {!! Form::open(['url' => '/create','method'=>'Post']) !!}
-<div>
-<img src="{{  asset('/storage/images/' . Auth::user()->images) }}" class="user-icon">
+<div class="index-form">
+
+<img src="{{  asset('/storage/images/' . Auth::user()->images) }}" width="65px" hight="65px">
+
             <input class="post-input" name="newPost" placeholder="投稿内容を入力してください"><button type="submit"><img src="images/post.png" class="user-icon"></button></input>
       
         
@@ -19,13 +21,15 @@
 
 <p>
 
- <hr> 
+
  
    <!-- 変数  モデル カラム -->
 <div class="show-post">
-<img src="{{  asset('/storage/images/' . $post->user->images) }}" width="65px" height="65px" class="show-img">
-<td class="show-name">{{ $post->user->username }}</td><!--リレーションしたやつはテーブル名も書く必要がある-->
-<td class="current_timestamp" >{{ $post->created_at }}</td></p>
+    
+<img src="{{  asset('/storage/images/' . $post->user->images) }}" width="65px" height="65px">
+    
+<div class="show-name"><td>{{ $post->user->username }}</td></div><!--リレーションしたやつはテーブル名も書く必要がある-->
+<div class="current_timestamp"><td>{{ $post->created_at }}</td></div>
 <p class="posts">{{ $post->post }}</p>
 
 
@@ -35,7 +39,8 @@
                 <td><a class="js-modal-open" href="{{$post->id}}" post="{{$post->post}}" post_id="{{$post->id}}"><img src="images/edit.png" width="45px" height="45px"></a></td>
                 <td><a  href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="images/trash-h.png" width ="50px" height="50px"></a></td>
 </div>
-</hr>
+
+
 </p>
 @endif
 

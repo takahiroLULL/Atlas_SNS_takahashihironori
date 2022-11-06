@@ -1,15 +1,19 @@
 @extends('layouts.login')
 
 @section('content')
+
 <form action="/follow-list" method="GET">
-Follow list
+<div class="followtext"><h3>Follow list</h3></div>
 @foreach($users as $user)
 @if(Auth::user()->isFollowing($user->id))
 
+<div class="follow-img">
 <a href="/user/{{$user->id}}">
 <img src="{{  asset('/storage/images/' . $user->images) }}" class="user-icon"></a>
+</div>
 
 @endif
+
 @endforeach
 @foreach($posts as $post)
 @if(Auth::user()->isFollowing($post->user_id))

@@ -54,20 +54,23 @@
         <div id="side-bar" >
             <div id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
-                <div>
+              
                 <p>フォロー数     {{ Auth::user()->getFollowCount(Auth::user()->id) }}名</p>
                 <!-- blade〜モデルでやりとり -->
                 <!-- ログインしている::ユーザー()->modelのメソッド（フォローしている人の数）→id -->
-                <p class="side-btn"><div class="btn btn-primary"><a href="/follow-list"><span class="text-white">フォローリスト</span></a></div></p>
-                </div>
+                <div class="user-btn">
+                <p class="side-btn"><div class="btn btn-primary btn-lg"><a href="/follow-list"><span class="text-white">フォローリスト</span></a></div></p>
+              </div>
                 
-                <div >
+                <div>
                 <p>フォロワー数   {{ Auth::user()->getFollowerCount(Auth::user()->id) }}名</p>
                 </div>
-                <p class="side-btn"><div class="btn btn-primary"><a href="/follower-list"><span class="text-white">フォロワーリスト</span></a></div></p>
+                <div class="user-btn">
+                <p class="side-btn"><div class="btn btn-primary btn-lg" ><a href="/follower-list"><span class="text-white">フォロワーリスト</span></a></div></p>
+                </div>
             </div>
             <hr>
-            <p><div class="btn btn-primary" ><a href="/search"><span class="text-white">ユーザー検索</span></a></div></p>
+            <p><div class="btn btn-primary btn-lg" ><a href="/search"><span class="text-white">ユーザー検索</span></a></div></p>
         </div>
     </div>
     <footer>

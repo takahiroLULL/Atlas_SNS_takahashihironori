@@ -23,8 +23,10 @@
 </head>
 <body>
   <header>
+    <div class="login-head">
     <h1 class="login-atlas"><img src="images/atlas.png" height="65px"></h1>
     <h3><p class="Social">Social Network Service</p></h3>
+    </div>
   </header>
   <div id="container">
     @yield('content')
