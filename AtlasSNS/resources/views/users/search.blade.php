@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="search-form">
+<div id="search-form">
 
     <form action="/search" method="GET">
         @csrf
@@ -12,15 +12,15 @@
         
         <!-- 空じゃなかったら -->
         @if(!empty($keyword))
-        <p>
-        検索ワード:{{ $keyword }}
-        </p>
+        <span>
+        検索ワード : {{ $keyword }}
+        </span>
         @endif
     </form>
 
 </div>
 
-<hr>
+
 @foreach($users as $user)
 <!-- !で自分以外のユーザーを表示 -->
 @if ($user->id !== Auth::user()->id)

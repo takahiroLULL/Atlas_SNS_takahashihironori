@@ -5,7 +5,9 @@
 {!! Form::open(['url' => '/login','class' => 'center-block']) !!} <!--ここからformタグ処理開始-->
 
 <div>
+  <div class="">
 <h5><p class="text-center text-white">AtlasSNSへようこそ</p></h5>
+</div>
 <div class="login-form text-center">
 <p class="text-white text-start">{{ Form::label('e-mail',) }}</p>
 <p>{{ Form::text('mail',null,['class' => 'input']) }}</p>

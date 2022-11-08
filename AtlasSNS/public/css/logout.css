@@ -5,7 +5,7 @@ html{
 }
 
 body{
-    height: 100%;
+    height: 100vh;
     background: #0a1dcf;
     /* 背景画像         */
     background-image: linear-gradient(0deg, #ceda63 0%, #1e72c0 100%);
@@ -30,8 +30,8 @@ header{
   display: flex;
   justify-content: space-around;
   background-color: rgba(130, 131, 131, 0.404);/* 透明度 */
-  position: absolute;
-  top: 60%;
+  position: relative;
+  top: 33vh;
   left: 50%;
   transform : translate(-50%,-50%);
   width: 27%;
@@ -66,7 +66,7 @@ header{
 }
 
 #register{
-    position: absolute;
+    position: relative;
     display: block;
     text-align: center;
     background-color: rgba(130, 131, 131, 0.404);
@@ -79,7 +79,6 @@ header{
 
 .register-new{ /* 新規ユーザー登録のとこ */
     padding-bottom:10px ;
-    
 }
 
 .register-text{

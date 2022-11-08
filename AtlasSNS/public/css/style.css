@@ -89,7 +89,7 @@ header{
 }
 
 .posts{
-  padding: 3% 34% 0 5.3%;
+  padding: 3% 34% 0 6.8%;
 
 } 
 
@@ -136,6 +136,7 @@ header{
 .up-name{
   padding: 0 12% 2% 0;
   display: inline-block;
+  justify-content: space-between;
 }
 
 .up-mail{
@@ -304,18 +305,32 @@ header{
   display: inline-block;
 }
 
-.search-form{
-  height: 40%;
+#search-form{
+  height: 15%;
   padding: 1.25rem;
+  border-bottom: inset 10px;
 }
 
-.search-form form{
+#search-form input{
   text-align: left;
+  height: 45px;
+  width: 25%;
 }
 
-.search-form input{
+#search-form input{
   text-align: left;
+  height: 45px;
+  width: 25%;
 }
+
+#search-form span{
+  padding-left: 30%;
+  position: absolute;
+  top: 35px;
+  font-size: xx-large;
+}
+
+
 
 .follower-post{
   justify-content: center;
@@ -325,6 +340,12 @@ header{
 }
 
 /* フォローリストページ */
+
+#follow-form form{
+  display: inline-block;
+  width: 100%;
+  border-bottom: inset 10px;
+}
 
 .followlist{
   text-align: center;
@@ -339,6 +360,53 @@ header{
   display: inline-flex;
   text-align: center;
 }
+
+/* フォロワーリストページ */
+
+#follower-form{
+  display: inline-block;
+  width: 100%;
+  height: 20%;
+  border-bottom: inset 10px;
+}
+
+.follower-text{
+  display: inline-flex;
+  font-size: 30px;
+  padding-left: 10%;
+}
+
+.follower-img{
+  display: inline-flex;
+  width: 40%;
+  height: 40%;
+  padding: 20px 0px 0 3%;
+  flex-wrap: wrap;
+}
+
+.user-icon{
+  justify-content: space-between;
+}
+
+.user-name{
+  display: inline-flex;
+  justify-content: space-between;
+  width: 150%;
+}
+
+.user-post{
+  width: 100%;
+}
+
+.user-created_at{
+  text-align: end;
+}
+
+.user-show{
+  display: inline-flex;
+  width: 100%;
+}
+
 
 /* 他ユーザーのページ */
 .user-form p {
