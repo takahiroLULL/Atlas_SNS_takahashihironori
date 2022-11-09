@@ -18,19 +18,22 @@
 
 @foreach($posts as $post)
 @if($post->user_id == Auth::id() || Auth::user()->isFollowing($post->user_id))
-
 <p>
-
-
- 
    <!-- 変数  モデル カラム -->
-<div class="show-post">
-    
+<div class="user-show">
+
+<div class="user-icon">
 <img src="{{  asset('/storage/images/' . $post->user->images) }}" width="65px" height="65px">
-    
-<div class="show-name"><td>{{ $post->user->username }}</td></div><!--リレーションしたやつはテーブル名も書く必要がある-->
-<div class="current_timestamp"><td>{{ $post->created_at }}</td></div>
-<p class="posts">{{ $post->post }}</p>
+</div>
+
+<div class="user-post">
+<div class="user-name">
+<p>{{ $post->user->username }}<div class="user-created_at">{{ $post->created_at }}</div></p>
+</div>
+<div class="post-max">
+<p>{{ $post->post }}</p>
+</div>
+</div>       
 
 
                 
@@ -57,7 +60,7 @@
         </div>
     </div>
 </div>
-
+<hr>
     @endif
     @endforeach
 

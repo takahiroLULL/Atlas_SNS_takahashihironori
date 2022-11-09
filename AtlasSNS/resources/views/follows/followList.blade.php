@@ -1,41 +1,43 @@
 @extends('layouts.login')
 
 @section('content')
-<div id="follow-form">
+<div id="follower-form">
 <form action="/follow-list" method="GET">
+<div class="follower-text"><h3>Follow list</h3></div>
 
-<div class="followtext"><h3>Follow list</h3></div>
-
+<div class="follower-img">
 @foreach($users as $user)
 @if(Auth::user()->isFollowing($user->id))
-
-<div class="follow-img">
+<div class="each-img">
 <a href="/user/{{$user->id}}">
 <img src="{{  asset('/storage/images/' . $user->images) }}" class="user-icon"></a>
 </div>
-
 @endif
 @endforeach
 </div>
+</div>
 @foreach($posts as $post)
 @if(Auth::user()->isFollowing($post->user_id))
-
+<div class="user-show">
 <p>
-
-<div class="follow-post">
+<div>
 <!-- 誰の投稿のIDを表示するか、、 投稿->ユーザー-->
 <a href="/user/{{$post->user_id}}">
 <img src="{{  asset('/storage/images/' . $post->user->images) }}" class="user-icon">
 </a>
-<td>{{ $post->user->username }}</td></a>
-<td class="current_timestamp">{{ $post->created_at }}</td>            
-
-<p><td class="post">{{ $post->post }}</td></p>
-
- 
-</p>
-<hr>         
 </div>
+
+<div class="user-post">
+<div class="user-name">
+<p>{{ $post->user->username }}<div class="user-created_at">{{ $post->created_at }}</div></p>
+</div>
+<div class="post-max">
+<p>{{ $post->post }}</p>
+</div>
+</div>
+</div>
+<hr>         
+
                 @endif
     @endforeach
    

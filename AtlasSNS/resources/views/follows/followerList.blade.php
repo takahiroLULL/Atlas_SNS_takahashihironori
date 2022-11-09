@@ -8,9 +8,10 @@
 <div class="follower-img">
 @foreach($users as $user)
 @if(Auth::user()->isFollowed($user->id))
+<div class="each-img">
 <a href="/user/{{$user->id}}">
 <img src="{{asset('storage/images/' .  $user->images)}}" ></a>
-
+</div>
 @endif
 @endforeach
 </div>
@@ -32,10 +33,10 @@
 <div class="user-name">
 <p>{{ $post->user->username }}<div class="user-created_at">{{ $post->created_at }}</div></p>
 </div>
+<div class="post-max">
 <p>{{ $post->post }}</p>
-  
+</div>
 </div>       
-
 </div>
 <hr>
 
