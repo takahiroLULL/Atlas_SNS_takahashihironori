@@ -41,10 +41,10 @@
                     <!--Authの中のuserテーブルの中のusernameを取り出す-->
                     
                 <ul id="links01">
-                <a href="/top"><li><span class="text-muted">HOME</span></li></a>
-                <a href="/profile"><li class="bg-primary"><span class="text-white">プロフィール編集
-</span></li></a>
-<a href="/logout"><li><span class="text-muted">ログアウト</span></li></a>
+               <li> <a href="/top"><span class="text-muted">HOME</span></a></li>
+                <li class="bg-primary"><a href="/profile"><span class="text-white">プロフィール編集
+</span></a></li>
+<li><a href="/logout"><span class="text-muted">ログアウト</span></a></li>
                 </ul>
             </div>
         </div>
