@@ -1,14 +1,17 @@
 @extends('layouts.login')
 
 @section('content')
-
+<div id="user-pr">
 <img src="{{asset('storage/images/' .  $user_id->images)}}" class="user-icon">
 
-name  {{$user_id->username}}
+<div class="user-bio">
+<p><h6>name  {{$user_id->username}} </h6></p>
 
-bio  {{$user_id->bio}} 
-
+<p><h6>bio  {{$user_id->bio}} </h6> </p>
+</div>
+<div class="userbtn">
 @if(auth()->user()->isFollowing($user_id->id))
+
         <td>
             <form action="{{ route('unfollow',['id'=>$user_id->id]) }}" method="post">
                 <input type="submit" value="フォロー解除" class="btn btn-danger">
@@ -23,16 +26,23 @@ bio  {{$user_id->bio}}
                 <input type="submit" value="フォローする" class="btn btn-primary">
             </form>
         </td>
+
         @endif
-
+        </div>
+        </div>
 @foreach($posts as $post)
-
-<hr>
-<img src="{{  asset('/storage/images/' . $post->user->images) }}">
-<p>{{$user_id->username}}  </p>
-<td>{{ $post->post }}</td>
-
-<td>{{ $post->created_at }}</td>
-</hr>
+<div class="user-show">
+<div class="each-img">
+<img src="{{  asset('/storage/images/' . $post->user->images) }}"></div>
+<div class="user-post">
+<div class="user-name">
+<p>{{ $post->user->username }}<div class="user-created_at">{{ $post->created_at }}</div></p>
+</div>
+<div class="post-max">
+<p>{{ $post->post }}</p>
+</div>
+</div>
+</div>
+<hr>  
 @endforeach
 @endsection

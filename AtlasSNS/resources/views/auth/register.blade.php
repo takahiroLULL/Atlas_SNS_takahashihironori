@@ -49,10 +49,11 @@
 
 <p >{{ Form::submit('REGISTER',['class' => 'btn btn-danger']) }}</p>
 
-
-<p><a href="/login">ログイン画面へ戻る</a></p>
+<p><a href="/login" style="text-decoration:none" class="text-white">ログイン画面へ戻る</a></p>
 
 {!! Form::close() !!} <!--formタグ終了-->
+
+
 </div>
 
 @endsection

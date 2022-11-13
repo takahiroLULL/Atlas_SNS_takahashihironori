@@ -108,7 +108,7 @@ class UsersController extends Controller
           'bio' => $request->input('bio'),
         ]);
       }
-        return redirect('/profile');
+        return redirect('/top');
     }
 
   

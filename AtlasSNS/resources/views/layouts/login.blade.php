@@ -29,7 +29,9 @@
         <div id = "head">
             <!--"/top"に戻るように     Atlasの画像を置く  画像を押せばtopに戻る記述-->
             <div class="atlas-zone">
+                <div class="top-img">
         <a href="/top"><img src="{{ asset('images/atlas.png') }}" class="atlas-img"></a>
+        </div>
            </div>
             <div class="menu">
                     <input type="checkbox" id="menu_bar01"/>
@@ -39,10 +41,10 @@
                     <!--Authの中のuserテーブルの中のusernameを取り出す-->
                     
                 <ul id="links01">
-                    <li><a href="/top"><span class="text-muted">HOME</span></a></li>
-                    <li class="bg-primary"><a href="/profile"><span class="text-white">プロフィール編集
-</span></a></li>
-                    <li ><a href="/logout"><span class="text-muted">ログアウト</span></a></li>
+                <a href="/top"><li><span class="text-muted">HOME</span></li></a>
+                <a href="/profile"><li class="bg-primary"><span class="text-white">プロフィール編集
+</span></li></a>
+<a href="/logout"><li><span class="text-muted">ログアウト</span></li></a>
                 </ul>
             </div>
         </div>
@@ -59,18 +61,18 @@
                 <!-- blade〜モデルでやりとり -->
                 <!-- ログインしている::ユーザー()->modelのメソッド（フォローしている人の数）→id -->
                 <div class="user-btn">
-                <p class="side-btn"><div class="btn btn-primary btn-lg"><a href="/follow-list"><span class="text-white">フォローリスト</span></a></div></p>
+                <a href="/follow-list"><p class="side-btn"><div class="btn btn-primary btn-lg"><span class="text-white">フォローリスト</span></div></p></a>
               </div>
                 
                 <div>
                 <p>フォロワー数   {{ Auth::user()->getFollowerCount(Auth::user()->id) }}名</p>
                 </div>
                 <div class="user-btn">
-                <p class="side-btn"><div class="btn btn-primary btn-lg" ><a href="/follower-list"><span class="text-white">フォロワーリスト</span></a></div></p>
+                <a href="/follower-list"><p class="side-btn"><div class="btn btn-primary btn-lg" ><span class="text-white">フォロワーリスト</span></div></p></a>
                 </div>
             </div>
             <hr>
-            <p><div class="btn btn-primary btn-lg" ><a href="/search"><span class="text-white">ユーザー検索</span></a></div></p>
+            <a href="/search"><p><div class="btn btn-primary btn-lg" ><span class="text-white">ユーザー検索</span></div></p></a>
         </div>
     </div>
     <footer>

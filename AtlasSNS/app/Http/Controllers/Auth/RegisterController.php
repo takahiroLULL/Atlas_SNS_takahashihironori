@@ -57,7 +57,23 @@ class RegisterController extends Controller
                          //入力必須|文字列であるか|8文字以上|20文字以内|confirmedと同値か|英数列か
             'password_confirmation' => 'required|string|min:8|max:20|same:password',
                                         //入力必須｜pass
-
+        ],
+        [
+        'username.required' => 'ユーザー名を入力してください',
+        'username.min' => 'ユーザー名は2文字以上、12文字以下で入力してください',
+        'username.max' => 'ユーザー名は2文字以上、12文字以下で入力してください',
+        'mail.required' => 'メールアドレスを入力してください',
+        'mail.email' => '有効なEメールアドレスを入力してください',
+        'mail.min' => 'メールアドレスは5文字以上、40文字以下で入力してください',
+        'mail.max' => 'メールアドレスは5文字以上、40文字以下で入力してください',
+        'mail.unique' => 'このメールアドレスは既に使われています',
+        'password.required' => 'パスワードを入力してください',
+        'password.min' => 'パスワードは8文字以上、20文字以下で入力してください',
+        'password.max' => 'パスワードは8文字以上、20文字以下で入力してください',
+        'password.alpha_dash' => 'パスワードは英数字のみ入力してください',
+        'password.confirmed' => '確認パスワードが一致しません',
+        'password_confirmation.required' => '確認パスワードを入力してください',
+        'password.alpha_num' => 'パスワードは半角数字で入力してください',
         ]);
     }
 

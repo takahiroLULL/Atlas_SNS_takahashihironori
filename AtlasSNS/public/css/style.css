@@ -28,6 +28,7 @@ header{
 #head{
   display: flex;
   position: relative;
+  height: 100%;
 }
 
 #confirm{
@@ -102,25 +103,54 @@ header{
 
 .content{
   text-align: right;
+  display: flex;
 }
 
 /* プロフィール編集 */
 
 .icon-up{
   position: absolute;
+  top: 3%;
+  left: 15%;
 }
 
 .up-user{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 12% 2% 0;
+  padding: 3% 0% 2% 0;
   margin: 0% 25% 0%;
 }
 
 .up-user input{
-  height: 35px;
+  background-color: #e2e2e2;
+  border-radius: 10px 10px
+}
+
+.up-user input{
+  height: 50px;
   width: 50%;
+}
+
+.up-btn{
+  text-align: center;
+}
+
+
+.up-user label{
+  cursor: pointer;
+  color: #000000;
+  background-color: #e2e2e2;
+  padding: 10px 40px;
+  margin-right: 60px;
+}
+
+input[type="file"]{
+  display: none;
+}
+
+.error{
+  text-align: center;
 }
 
 /* アコーディオンメニュー */
@@ -386,6 +416,24 @@ header{
   margin: 0 10px 20px 0;
 }
 
+#user-pr{
+  display: inline-flex;
+  padding-left: 10%;
+  width: 100%;
+  height: 20%;
+  border-bottom: inset 10px;
+  padding-top: 20px;
+}
+
+.userbtn{
+  display:inline;
+  padding: 5% 0 0 50%;
+}
+
+.user-bio{
+  padding-left: 33px;
+}
+
 /* アトラス画像 */
 .atlas-img{
   display: block;
@@ -397,6 +445,9 @@ header{
   margin: 0%;
   height: auto;
 }
+
+
+
 
 /* ユーザーのアイコンのサイズ指定 */
 .user-icon{

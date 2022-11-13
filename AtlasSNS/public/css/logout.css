@@ -21,7 +21,6 @@ header{
 }
 
 .login-head{
-    position: absolute;
     display: contents;
     top: 50px;
 }
@@ -31,7 +30,7 @@ header{
   justify-content: space-around;
   background-color: rgba(130, 131, 131, 0.404);/* 透明度 */
   position: relative;
-  top: 33vh;
+  top: 27vh;
   left: 50%;
   transform : translate(-50%,-50%);
   width: 27%;
@@ -58,12 +57,13 @@ header{
 
 .login-form{
     margin-bottom: 20px;
-    margin-bottom: 4rem;
+    margin-bottom: 27px;
 }
 
 .login-body h5{
     margin-bottom: 4rem;
 }
+
 
 #register{
     position: relative;
@@ -94,4 +94,23 @@ header{
 #register p{
     color: white;
 }
+
+/* ウェルカムトゥSNS */
+
+#clear{
+  justify-content: space-around;
+  background-color: rgba(130, 131, 131, 0.404);/* 透明度 */
+  position: relative;
+  top: 27vh;
+  left: 50%;
+  transform : translate(-50%,-50%);
+  width: 27%;
+  height: 39%;
+  text-align: center;
+  border-radius: 10px 10px;
+  color:#fff;
+}
+
+
+
 

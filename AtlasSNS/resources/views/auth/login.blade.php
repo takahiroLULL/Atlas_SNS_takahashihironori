@@ -20,7 +20,7 @@
 <p class="text-center">{{ Form::submit('LOGIN',['class' => 'btn btn-danger ']) }}</p>
 </div>
 
-<p class="text-center "><a href="/register">新規ユーザーの方はこちら</a></p>
+<p class="text-center "><a href="/register" style="text-decoration:none" class="text-white">新規ユーザーの方はこちら</a></p>
 
 {!! Form::close() !!} <!--ここまでformタグ処理-->
 </div>

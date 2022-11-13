@@ -8,10 +8,11 @@
 
             <input class="post-input" name="newPost" placeholder="投稿内容を入力してください"><button type="submit"><img src="images/post.png" class="user-icon"></button></input>
       
-        
+        <div class="error">
         @foreach ($errors->all() as $error)
                 <p class="text-danger">{{ $error }}</p>
             @endforeach
+            </div>
 </div>
 
 {!! Form::close() !!}
